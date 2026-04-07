@@ -81,7 +81,7 @@ TRACE synthesizes nine evidence-based frameworks:
 
 If you use TRACE in your research, please cite:
 
-> Hurst, D. A. (2026). TRACE: A structured ontology for human trafficking tactics, techniques, and procedures modeled on the MITRE ATT&CK framework. *Journal of Human Trafficking*. [DOI pending]
+> Hurst, D. A. (2026). TRACE: A structured ontology for human trafficking tactics, techniques, and procedures modeled on the MITRE ATT&CK framework. *Journal of Human Trafficking*. DOI https://zenodo.org/badge/DOI/10.5281/zenodo.19458175.svg
 
 ## License
 
