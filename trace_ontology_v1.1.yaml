@@ -1,0 +1,3410 @@
+meta:
+  name: TRACE Ontology
+  version: '1.1'
+  full_name: Trafficking Recognition, Analysis & Countermeasure Engine
+  description: TRACE (Tactics, Roles, Actors, Coercion, and Ecology) - A structured ontology for human trafficking tactics,
+    techniques, and procedures modeled on the MITRE ATT&CK framework. Developed for cross-disciplinary use across law enforcement,
+    clinical practice, intelligence analysis, social work, and victim advocacy.
+  date: '2026-04-06'
+  license: CC BY-NC-SA 4.0
+  authors:
+  - Anthony Hurst
+  source_frameworks:
+  - MITRE ATT&CK v18
+  - Polaris Project Typology of Modern Slavery (2017)
+  - UNODC Trafficking Indicators Framework
+  - ILO Forced Labor Indicators (2025)
+  - Zimmerman et al. Stages Model
+  - Biderman Chart of Coercion (1957)
+  - Hassan BITE Model
+  - Crime Script Analysis
+  roles:
+  - id: LE
+    name: Law Enforcement
+  - id: INTEL
+    name: Intelligence Analyst
+  - id: SANE
+    name: SANE/Forensic Examiner
+  - id: SW
+    name: Social Worker
+  - id: VA
+    name: Victim Advocate
+tactics:
+- id: TA0001
+  name: Targeting
+  phase: Pre-trafficking
+  description: Techniques for identifying, profiling, and selecting individuals vulnerable to trafficking. Traffickers engage
+    in rational decision-making involving cost-benefit analysis, exploiting structural vulnerabilities (poverty, prior foster
+    involvement, homelessness, immigration status) and individual vulnerabilities (learning disabilities, mental illness,
+    prior trauma, substance use disorders, social isolation).
+  zimmerman_stage: Pre-Trafficking
+  crime_script_track: Victim Recruitment
+  role_relevance:
+    LE: Identifies targeting patterns to predict future victimization; links victim selection to perpetrator profile
+    INTEL: Maps vulnerability scanning operations; identifies targeting infrastructure
+    SANE: Understands pre-exploitation vulnerability context for trauma-informed assessment
+    SW: Identifies at-risk populations for prevention; recognizes vulnerability factors in current clients
+    VA: Understands how survivor was identified and targeted; informs empowerment narrative
+- id: TA0002
+  name: Recruitment
+  phase: Transition Phase
+  description: Methods of initial engagement and the transition from normal social contact to trafficking relationship. Recruitment
+    is where coercion, if not already present, typically begins. Crime script analysis identifies recruitment as a distinct
+    event with specific decision points.
+  zimmerman_stage: Recruitment/Transit
+  crime_script_track: Victim Recruitment / Financial Transactions
+  role_relevance:
+    LE: Identifies recruitment methods for prosecution; traces initial contact and grooming evidence
+    INTEL: Maps recruitment networks and methodologies; identifies recruitment infrastructure
+    SANE: Documents injuries and presentations from early-stage coercion and boundary violation
+    SW: Recognizes grooming patterns in clients; identifies early intervention opportunities
+    VA: Helps survivors understand manipulation they experienced; reduces self-blame
+- id: TA0003
+  name: Coercion
+  phase: Early/Sustained Trafficking
+  description: Psychological, economic, and physical mechanisms maintaining victim compliance and preventing escape. Grounded
+    in Biderman's framework of coercive control and Hassan's BITE model of authoritarian control.
+  zimmerman_stage: Exploitation (onset)
+  crime_script_track: Control and Coercion
+  role_relevance:
+    LE: Documents control mechanisms as evidence of force/fraud/coercion elements; identifies co-conspirators in control apparatus
+    INTEL: Maps control infrastructure; identifies surveillance and communication networks
+    SANE: Documents physical evidence of control (injuries, malnutrition, substance effects); provides trauma-informed context
+    SW: Assesses current control mechanisms for safety planning; sequences intervention to address most dangerous controls
+      first
+    VA: Helps survivor understand control dynamics; validates experience; supports autonomy restoration
+- id: TA0004
+  name: Exploitation
+  phase: Sustained Trafficking
+  description: Techniques for extracting labor, controlling economic output, and maintaining continuous harm through forced
+    work, commodification, organ trafficking, criminally coerced labor, and economic exploitation.
+  zimmerman_stage: Exploitation
+  crime_script_track: Advertisement and Promotion / Financial Transactions
+  role_relevance:
+    LE: Documents exploitation activity for prosecution; identifies venues, buyers, and facilitators
+    INTEL: Maps exploitation operations, revenue streams, and market dynamics
+    SANE: Documents physical and psychological effects of exploitation; provides forensic evidence
+    SW: Assesses exploitation impact for service planning; addresses immediate needs
+    VA: Centers survivor narrative; connects exploitation to legal remedies; supports healing
+- id: TA0005
+  name: Concealment
+  phase: Throughout Operation
+  description: Operational security techniques traffickers use to avoid detection, maintain legal distance from victim harm,
+    and evade accountability. Includes victim normalization, witness management, record suppression, and institutional cooperation.
+  zimmerman_stage: Exploitation (maintenance)
+  crime_script_track: Control and Coercion / Geographic Movement
+  role_relevance:
+    LE: Identifies concealment techniques to overcome during investigation; targets operational security vulnerabilities
+    INTEL: Maps concealment infrastructure; identifies corruption networks and counter-intelligence operations
+    SANE: Understands why victims may present inconsistently due to concealment pressure
+    SW: Recognizes concealment tactics that may prevent disclosure or service engagement
+    VA: Supports survivor through disclosure barriers created by concealment tactics
+- id: TA0006
+  name: Scaling
+  phase: Expansion Phase
+  description: Techniques for expanding operations, multiplying trafficking capacity without proportional increases in trafficker
+    personnel, or moving victims across jurisdictions. Includes franchising, supply chain integration, victim cascading, and
+    technology leverage.
+  zimmerman_stage: Exploitation (financial)
+  crime_script_track: Financial Transactions
+  role_relevance:
+    LE: Follows the money to identify network scope; builds financial predicate crime charges; asset forfeiture
+    INTEL: Maps financial networks; identifies money flow patterns; connects seemingly separate operations
+    SANE: Documents financial exploitation evidence (stolen identity, forced financial activity)
+    SW: Addresses survivor financial harm (credit damage, debt, identity theft recovery)
+    VA: Supports financial recovery; connects to victim compensation; documents economic harm
+techniques:
+- id: T0001
+  name: Social Media Vulnerability Scanning
+  tactic_ids:
+  - TA0001
+  description: Threat actor uses social media platforms to identify potential victims by scanning for vulnerability indicators
+    including posts about family conflict, homelessness, financial distress, substance use, depression, loneliness, or desire
+    for relationships/employment.
+  platforms:
+  - Instagram
+  - TikTok
+  - Snapchat
+  - Facebook
+  - Twitter/X
+  - Dating apps
+  sub_techniques:
+  - id: T0001.001
+    name: Hashtag/Keyword Monitoring
+    description: 'Monitoring specific hashtags (#runaway, #homeless, #needhelp) or keywords indicating vulnerability'
+  - id: T0001.002
+    name: Location-Based Targeting
+    description: Using geolocation features to identify targets near shelters, group homes, bus stations
+  - id: T0001.003
+    name: AI-Assisted Profiling
+    description: Using automated tools or AI to scan and profile potential victims at scale
+  indicators:
+    LE:
+    - Perpetrator social media search history showing vulnerability terms
+    - Multiple initial contacts with vulnerable youth from same account
+    - Geolocation data showing proximity to vulnerable populations
+    INTEL:
+    - Pattern of social media accounts contacting vulnerable youth
+    - Common platform usage across multiple cases
+    - Bot-like behavior in initial outreach
+    SANE:
+    - Victim reports initial contact via social media
+    - Victim describes being 'found' online during vulnerable period
+    SW:
+    - Client reports online relationship that began during crisis period
+    - Pattern of older contacts messaging vulnerable youth clients
+    VA:
+    - Survivor describes being targeted online
+    - Survivor reports sharing vulnerability online before trafficking
+  mitigations:
+  - Digital literacy education
+  - Platform safety features
+  - Social media monitoring by guardians
+  - Prevention outreach on platforms
+  source_frameworks:
+  - Polaris Project
+  - UNODC
+- id: T0002
+  name: Prior Victimization Exploitation
+  tactic_ids:
+  - TA0001
+  description: Threat actor identifies individuals with prior abuse, trafficking, or exploitation history and targets them
+    specifically because prior victimization creates vulnerability patterns (trauma responses, distrust of systems, normalized
+    exploitation).
+  sub_techniques:
+  - id: T0002.001
+    name: Re-trafficking of Known Victims
+    description: Targeting individuals previously identified as trafficking victims who have exited services
+  - id: T0002.002
+    name: Domestic Violence Victim Targeting
+    description: Targeting individuals fleeing domestic violence who lack resources and support
+  - id: T0002.003
+    name: Child Abuse Survivor Targeting
+    description: Targeting individuals with childhood abuse history showing vulnerability indicators
+  indicators:
+    LE:
+    - Victim has prior trafficking case history
+    - Perpetrator aware of victim's abuse history
+    - Victim identified through trafficking recovery program
+    INTEL:
+    - Pattern of re-victimization in case data
+    - Perpetrator targeting domestic violence shelters or recovery programs
+    SANE:
+    - Complex trauma presentation suggesting prior exploitation
+    - Physical findings consistent with long-term abuse history
+    SW:
+    - Client with trafficking history presenting with new exploitation
+    - Pattern of re-exploitation following service exit
+    VA:
+    - Survivor reports being targeted because trafficker knew their history
+    - Re-trafficking following service engagement
+  mitigations:
+  - Long-term survivor support
+  - Safety planning for service exits
+  - Re-trafficking prevention programs
+  source_frameworks:
+  - Zimmerman et al.
+  - Polaris Project
+- id: T0003
+  name: Institutional Targeting
+  tactic_ids:
+  - TA0001
+  description: Threat actor targets populations in institutions (foster care, group homes, juvenile justice, shelters) where
+    vulnerability is elevated and guardianship is fragmented.
+  sub_techniques:
+  - id: T0003.001
+    name: Foster Care System Targeting
+    description: Targeting youth in foster care with documented higher trafficking rates
+  - id: T0003.002
+    name: Group Home/Shelter Targeting
+    description: Targeting youth in group homes, residential treatment, or homeless shelters
+  - id: T0003.003
+    name: Juvenile Justice System Targeting
+    description: Targeting incarcerated or probation-supervised youth
+  - id: T0003.004
+    name: Institutional Staff Recruitment
+    description: Recruiting institutional staff to identify and deliver vulnerable youth
+  indicators:
+    LE:
+    - Perpetrator with institutional employment
+    - Youth victimization clustered around same institution
+    - Staff coordination with perpetrator
+    INTEL:
+    - Geographic clustering of victims from specific institutions
+    - Perpetrator association with institution
+    - Staff turnover patterns
+    SANE:
+    - Victim from institutional background
+    - Exploitation timing following institutional placement
+    SW:
+    - Client missing from placement
+    - Client contact with adults from placement
+    - Staff misconduct indicators
+    VA:
+    - Survivor reports institutional vulnerability
+    - Exploitation occurring while in care
+  mitigations:
+  - Institutional screening protocols
+  - Youth-staff interaction oversight
+  - Trafficking awareness training for staff
+  - Missing youth rapid response
+  source_frameworks:
+  - Polaris Project
+  - Shared Hope International
+- id: T0004
+  name: Geographic Targeting
+  tactic_ids:
+  - TA0001
+  description: Threat actor identifies geographic areas with high victim concentration, limited law enforcement, or characteristics
+    facilitating trafficking (border regions, tourism corridors, rural isolation).
+  sub_techniques:
+  - id: T0004.001
+    name: Border Region Targeting
+    description: Targeting near-border populations with migration vulnerability and jurisdictional complexity
+  - id: T0004.002
+    name: Tourism Corridor Targeting
+    description: Targeting areas with transient populations, hospitality industry, and cash economies
+  - id: T0004.003
+    name: Rural Area Targeting
+    description: Targeting rural areas with limited law enforcement and social services
+  - id: T0004.004
+    name: Jurisdictional Fragmentation Exploitation
+    description: Operating across jurisdictional boundaries to evade coordinated response
+  indicators:
+    LE:
+    - Geographic clustering of trafficking cases
+    - Victim sourcing from specific origin areas
+    - Cross-jurisdictional operations
+    INTEL:
+    - Perpetrator movement patterns
+    - Operational hubs in specific geographies
+    - Border proximity patterns
+    SANE:
+    - Victim exploitation in specific geographic area
+    - Victim movement from origin to exploitation area
+    SW:
+    - Client origin in high-trafficking region
+    - Client displacement from origin community
+    VA:
+    - Survivor narrative of geographic movement
+    - Language/culture barrier from relocation
+  mitigations:
+  - Cross-jurisdictional task forces
+  - Community awareness in high-risk areas
+  - Service access in underserved areas
+  source_frameworks:
+  - UNODC
+  - Routine Activity Theory
+- id: T0005
+  name: Economic Vulnerability Assessment
+  tactic_ids:
+  - TA0001
+  description: Threat actor identifies individuals in economic distress and offers economic opportunity as exploitation entry
+    point.
+  sub_techniques:
+  - id: T0005.001
+    name: False Employment Advertising
+    description: Posting attractive job opportunities with false promises of wages, conditions, or type of work
+  - id: T0005.002
+    name: Housing Provision Dependency
+    description: Offering housing to create dependency and debt
+  - id: T0005.003
+    name: Microfinance/Debt Creation
+    description: Providing loans at exploitative terms to create debt servitude
+  - id: T0005.004
+    name: Gift-Based Dependency
+    description: Providing gifts and money to establish gratitude and obligation
+  indicators:
+    LE:
+    - False employment advertisements
+    - Housing provided by perpetrator
+    - Debt records
+    - Victim relocation for 'employment'
+    INTEL:
+    - Job/housing recruitment operations
+    - False advertising campaigns
+    - Economic inducement infrastructure
+    SANE:
+    - Victim reports economic motivation for entering situation
+    - Economic desperation background
+    SW:
+    - Client economic vulnerability prior to trafficking
+    - Debt-based arrangements
+    - Economic control during exploitation
+    VA:
+    - Survivor narrative of economic promises
+    - False employment
+    - Debt entrapment
+  mitigations:
+  - Employment verification resources
+  - Financial literacy education
+  - Housing assistance for vulnerable populations
+  source_frameworks:
+  - Polaris Project
+  - ILO
+- id: T0006
+  name: Immigration Status Exploitation
+  tactic_ids:
+  - TA0001
+  description: Threat actor specifically targets individuals with precarious immigration status, leveraging deportation fear
+    and limited service access.
+  sub_techniques:
+  - id: T0006.001
+    name: Visa Program Exploitation
+    description: Targeting holders of temporary work visas (H-2A, H-2B, J-1) whose status depends on employer
+  - id: T0006.002
+    name: Undocumented Immigrant Targeting
+    description: Targeting individuals without legal immigration status
+  - id: T0006.003
+    name: Refugee/Asylum Seeker Targeting
+    description: Targeting individuals in refugee or asylum-seeking status
+  indicators:
+    LE:
+    - Perpetrator aware of victim immigration status
+    - Threats of deportation
+    - Visa tied to employer/perpetrator
+    INTEL:
+    - Recruitment patterns in immigrant communities
+    - Visa fraud indicators
+    - Immigration-based control networks
+    SANE:
+    - Patient with immigration-related fear preventing disclosure
+    - Trauma presentation with deportation anxiety
+    SW:
+    - Client with precarious immigration status
+    - Employment tied to immigration sponsor
+    - Fear of law enforcement
+    VA:
+    - Survivor fears deportation
+    - Immigration status used as leverage
+    - T-visa eligibility assessment needed
+  mitigations:
+  - T-visa education and access
+  - Immigration legal services
+  - Law enforcement immigration screening protocols
+  source_frameworks:
+  - UNODC
+  - ILO
+  - Polaris Project
+- id: T0007
+  name: Substance Dependence Targeting
+  tactic_ids:
+  - TA0001
+  description: Threat actor identifies individuals with substance use disorders and targets them for exploitation, leveraging
+    addiction as both recruitment tool and control mechanism.
+  sub_techniques:
+  - id: T0007.001
+    name: Drug Supply as Recruitment
+    description: Providing drugs to establish dependency relationship before exploitation
+  - id: T0007.002
+    name: Recovery Program Targeting
+    description: Targeting individuals in or recently exiting substance use treatment
+  indicators:
+    LE:
+    - Perpetrator providing drugs to victim
+    - Drug supply chain connected to trafficking operation
+    - Victim with substance use history
+    INTEL:
+    - Drug trafficking and human trafficking operational overlap
+    - Substance-based control patterns
+    SANE:
+    - Substance use evidence in forensic exam
+    - Withdrawal symptoms
+    - Injection site patterns
+    SW:
+    - Client with substance use disorder in exploitation context
+    - Relapse coinciding with exploitation
+    VA:
+    - Survivor reports drugs provided by trafficker
+    - Substance-based control narrative
+  mitigations:
+  - Integrated trafficking/substance use screening
+  - Harm reduction with trafficking education
+  - Co-occurring treatment programs
+  source_frameworks:
+  - Polaris Project
+- id: T0008
+  name: LGBTQ+ Youth Targeting
+  tactic_ids:
+  - TA0001
+  description: Threat actor specifically targets LGBTQ+ youth experiencing family rejection, homelessness, or identity-related
+    isolation.
+  sub_techniques:
+  - id: T0008.001
+    name: Family Rejection Exploitation
+    description: Targeting youth expelled from home due to sexual orientation or gender identity
+  - id: T0008.002
+    name: Identity Acceptance Manipulation
+    description: Offering acceptance and affirmation as recruitment tool for isolated LGBTQ+ youth
+  indicators:
+    LE:
+    - Youth victim with family rejection history
+    - Perpetrator targeting LGBTQ+ spaces or online communities
+    INTEL:
+    - Patterns of LGBTQ+ youth victimization
+    - Targeting of LGBTQ+ community spaces
+    SANE:
+    - Youth presenting with gender dysphoria and exploitation indicators
+    - Injuries consistent with hate-based and exploitation violence
+    SW:
+    - LGBTQ+ youth client experiencing homelessness with exploitation indicators
+    - Family rejection as precipitating factor
+    VA:
+    - Survivor narrative of identity-based vulnerability
+    - Acceptance used as manipulation
+  mitigations:
+  - LGBTQ+ affirming shelters
+  - Family reconciliation programs
+  - LGBTQ+-specific trafficking prevention
+  source_frameworks:
+  - Polaris Project
+- id: T0009
+  name: Romeo/Loverboy Method
+  tactic_ids:
+  - TA0002
+  description: Threat actor initiates romantic or pseudo-romantic relationship with target, establishing emotional attachment
+    and dependency before progressively introducing exploitation.
+  sub_techniques:
+  - id: T0009.001
+    name: In-Person Romantic Approach
+    description: Meeting target in person and initiating conventional romantic relationship
+  - id: T0009.002
+    name: Online Romantic Grooming
+    description: Initiating relationship through dating apps or social media with rapid emotional escalation
+  - id: T0009.003
+    name: Trauma Bond Formation
+    description: Alternating affection and abuse to create psychological dependency
+  indicators:
+    LE:
+    - Rapid romantic relationship preceding exploitation
+    - Significant age gap
+    - Financial gifts early in relationship
+    - Perpetrator with multiple victim-partners
+    INTEL:
+    - Pattern of romantic recruitment across cases
+    - Same perpetrator methodology across victims
+    SANE:
+    - Victim describes boyfriend/partner as trafficker
+    - Reluctance to identify partner as perpetrator
+    - Physical injuries from partner
+    SW:
+    - Client in controlling romantic relationship with exploitation indicators
+    - Rapid relationship escalation with older partner
+    VA:
+    - Survivor describes love and manipulation from same person
+    - Trauma bond preventing separation
+    - Difficulty identifying experience as trafficking
+  mitigations:
+  - Healthy relationship education
+  - Teen dating violence prevention
+  - Trauma bond awareness
+  source_frameworks:
+  - Polaris Project
+  - Crime Script Analysis
+- id: T0010
+  name: False Employment Promises
+  tactic_ids:
+  - TA0002
+  description: Threat actor recruits victims through false or misleading employment offers, promising legitimate work that
+    either doesn't exist or differs substantially from reality.
+  sub_techniques:
+  - id: T0010.001
+    name: Modeling/Entertainment Scam
+    description: Promising modeling, acting, or entertainment careers
+  - id: T0010.002
+    name: Domestic Work Deception
+    description: Promising legitimate housekeeping or childcare work
+  - id: T0010.003
+    name: Agricultural Labor Fraud
+    description: Promising agricultural work with false wage and condition promises
+  - id: T0010.004
+    name: Restaurant/Hospitality Recruitment
+    description: Promising restaurant or hotel work through deceptive recruitment
+  indicators:
+    LE:
+    - Job advertisements with unrealistic promises
+    - Recruitment through informal channels
+    - Victims from same recruitment source
+    INTEL:
+    - Recruitment operation infrastructure
+    - False advertising patterns
+    - Labor contractor networks
+    SANE:
+    - Victim reports being recruited for different work than performed
+    - Work conditions inconsistent with promises
+    SW:
+    - Client recruited through employment promises
+    - Work conditions violating labor standards
+    - Wage theft
+    VA:
+    - Survivor describes bait-and-switch employment
+    - Promised conditions vs actual conditions
+    - Debt accumulated from recruitment
+  mitigations:
+  - Employment verification resources
+  - Labor trafficking awareness campaigns
+  - Worker rights education
+  source_frameworks:
+  - Polaris Project
+  - ILO
+- id: T0011
+  name: Family-Based Recruitment
+  tactic_ids:
+  - TA0002
+  description: Family member facilitates recruitment, selling or offering family member (often child) to trafficker, or family
+    unit operating as trafficking enterprise.
+  sub_techniques:
+  - id: T0011.001
+    name: Parental Trafficking
+    description: Parent selling or facilitating exploitation of child
+  - id: T0011.002
+    name: Extended Family Brokerage
+    description: Extended family member acting as intermediary between victim and trafficker
+  - id: T0011.003
+    name: Family Debt Settlement
+    description: Family member sold/traded to settle family debt or obligation
+  indicators:
+    LE:
+    - Family member involvement in trafficking arrangement
+    - Financial transaction between family and perpetrator
+    - Family knowledge of exploitation
+    INTEL:
+    - Familial trafficking patterns
+    - Intergenerational trafficking networks
+    SANE:
+    - Child/youth with family-facilitated exploitation history
+    - Injuries consistent with exploitation at young age
+    SW:
+    - Child welfare case with trafficking indicators
+    - Family complicity in exploitation
+    - Intergenerational trauma patterns
+    VA:
+    - Survivor identifies family member as facilitator
+    - Complex loyalty and trauma around family involvement
+  mitigations:
+  - Child welfare trafficking screening
+  - Family support services
+  - Mandatory reporting protocols
+  source_frameworks:
+  - Polaris Project
+  - Shared Hope International
+- id: T0012
+  name: Peer Recruitment
+  tactic_ids:
+  - TA0002
+  description: Existing victims or associates recruit new victims through peer relationships, often under direction of trafficker.
+  sub_techniques:
+  - id: T0012.001
+    name: Bottom Girl/Bottom Boy System
+    description: Most trusted/senior victim recruits and manages other victims
+  - id: T0012.002
+    name: Social Circle Infiltration
+    description: Using recruited victim to access their social network for additional victims
+  indicators:
+    LE:
+    - Victim acting as recruiter under coercion
+    - Social network analysis showing peer recruitment chains
+    INTEL:
+    - Recruitment chains in network analysis
+    - Peer-to-peer recruitment patterns
+    SANE:
+    - Victim describes being recruited by friend/peer
+    - Victim may also be acting as recruiter
+    SW:
+    - Client involved in both victim and recruitment roles
+    - Social network with multiple trafficking-involved individuals
+    VA:
+    - Survivor guilt about recruiting others
+    - Complex victim-offender intersectionality
+  mitigations:
+  - Peer support programs in high-risk settings
+  - Victim-offender intersectionality awareness training
+  source_frameworks:
+  - Polaris Project
+  - Shared Hope International
+- id: T0013
+  name: Online Grooming
+  tactic_ids:
+  - TA0002
+  description: Progressive online relationship building designed to establish trust, test boundaries, normalize exploitation,
+    and eventually facilitate in-person contact and exploitation.
+  sub_techniques:
+  - id: T0013.001
+    name: Gaming Platform Grooming
+    description: Using online gaming platforms to build relationships with vulnerable youth
+  - id: T0013.002
+    name: Social Media Grooming
+    description: Using social media direct messages and engagement to build attachment
+  - id: T0013.003
+    name: Sextortion Escalation
+    description: Obtaining intimate images then using them as blackmail leverage for further exploitation
+  indicators:
+    LE:
+    - Online communication records showing grooming progression
+    - Age-inappropriate contact patterns
+    - Image-based extortion evidence
+    INTEL:
+    - Platform-specific grooming patterns
+    - Account networks used for grooming
+    - Cross-platform targeting
+    SANE:
+    - Victim describes online relationship preceding exploitation
+    - Sextortion evidence
+    SW:
+    - Youth client with concerning online relationship
+    - Image-sharing with older contact
+    - Behavioral changes following online contact
+    VA:
+    - Survivor describes progressive online manipulation
+    - Shame related to shared images
+    - Difficulty identifying manipulation as exploitation
+  mitigations:
+  - Digital safety education
+  - Platform reporting features
+  - Parent/guardian digital literacy
+  - Age verification improvements
+  source_frameworks:
+  - Polaris Project
+  - UNODC
+- id: T0014
+  name: Drug-Facilitated Recruitment
+  tactic_ids:
+  - TA0002
+  description: Threat actor uses drug provision as recruitment and initial control tool, creating dependency that facilitates
+    exploitation.
+  sub_techniques:
+  - id: T0014.001
+    name: Party/Social Drug Introduction
+    description: Providing drugs in social settings to establish dependency
+  - id: T0014.002
+    name: Drug-for-Sex Exchange Initiation
+    description: Establishing pattern of drugs exchanged for sexual activity
+  indicators:
+    LE:
+    - Drug provision as part of trafficking operation
+    - Perpetrator drug supply chain
+    - Victim substance dependency created by perpetrator
+    INTEL:
+    - Drug-trafficking and human-trafficking operational overlap
+    - Drug supply as recruitment infrastructure
+    SANE:
+    - Substance use evidence in exam
+    - Dependency timeline corresponding to trafficking timeline
+    SW:
+    - Client substance use beginning at point of exploitation
+    - Substance provided by exploiter
+    VA:
+    - Survivor reports drugs provided as control tool
+    - Addiction developed during trafficking
+  mitigations:
+  - Substance use screening for trafficking
+  - Integrated treatment programs
+  - Prevention education
+  source_frameworks:
+  - Polaris Project
+- id: T0015
+  name: Religious/Spiritual Manipulation
+  tactic_ids:
+  - TA0002
+  description: Threat actor uses religious authority, spiritual beliefs, or cult dynamics to recruit and establish authority
+    over victims.
+  sub_techniques:
+  - id: T0015.001
+    name: Cult Recruitment
+    description: Recruiting into high-control group where exploitation occurs under spiritual justification
+  - id: T0015.002
+    name: Religious Authority Abuse
+    description: Using position of religious authority to access and exploit vulnerable congregation members
+  - id: T0015.003
+    name: Juju/Voodoo/Spiritual Oath Binding
+    description: Using spiritual oaths or rituals to create fear-based compliance (particularly in West African trafficking)
+  indicators:
+    LE:
+    - Religious organization involvement in trafficking
+    - Spiritual authority leveraged for exploitation
+    - Ritual evidence
+    INTEL:
+    - High-control group trafficking patterns
+    - Religious organization as trafficking front
+    SANE:
+    - Ritual-related injuries or marks
+    - Spiritual fear preventing disclosure
+    SW:
+    - Client in high-control group with exploitation indicators
+    - Spiritual manipulation as control mechanism
+    VA:
+    - Survivor describes spiritual control
+    - Religious guilt as barrier to leaving
+    - Fear of spiritual consequences
+  mitigations:
+  - Cult awareness education
+  - Exit counseling services
+  - Religious community trafficking training
+  source_frameworks:
+  - Hassan BITE Model
+  - Biderman
+- id: T0016
+  name: Debt-Based Recruitment
+  tactic_ids:
+  - TA0002
+  description: Threat actor creates or assumes debt obligation from victim or victim's family, then leverages debt as justification
+    for forced labor or sexual exploitation.
+  sub_techniques:
+  - id: T0016.001
+    name: Smuggling Debt Conversion
+    description: Converting migration/smuggling costs into trafficking debt
+  - id: T0016.002
+    name: Recruitment Fee Inflation
+    description: Charging inflated fees for job placement, visa processing, or travel
+  - id: T0016.003
+    name: Family Debt Transfer
+    description: Inheriting or assuming family member's debt obligation
+  indicators:
+    LE:
+    - Debt documentation
+    - Financial records showing inflated charges
+    - Debt used as control mechanism
+    INTEL:
+    - Debt-based trafficking networks
+    - Recruitment fee patterns
+    - Financial infrastructure for debt management
+    SANE:
+    - Victim reports debt as reason for continued exploitation
+    - Financial stress indicators
+    SW:
+    - Client describes debt obligation preventing escape
+    - Wages withheld for 'debt repayment'
+    VA:
+    - Survivor describes debt as central control mechanism
+    - Legal assistance for debt relief needed
+  mitigations:
+  - Debt invalidation legal remedies
+  - Financial counseling
+  - Worker rights education about illegal debt practices
+  source_frameworks:
+  - ILO
+  - UNODC
+  - Polaris Project
+- id: T0017
+  name: Forced Marriage/Bride Trafficking
+  tactic_ids:
+  - TA0002
+  description: Threat actor uses marriage as recruitment and control mechanism, where victim is forced into marriage for sexual
+    exploitation, unpaid labor, or cash exchange. Marriage becomes mechanism of control and isolation.
+  sub_techniques:
+  - id: T0017.001
+    name: Deceptive Marriage Proposal
+    description: Romantic partner proposes marriage under false pretenses, with actual intent to exploit
+  - id: T0017.002
+    name: Family-Brokered Forced Marriage
+    description: Family arranges marriage with individual who exploits spouse; victim may not have true consent
+  - id: T0017.003
+    name: Cross-Border Bride Trafficking
+    description: Marriage used as mechanism to transport victim to different country for exploitation
+  indicators:
+    LE:
+    - Marriage certificate predating exploitation
+    - Perpetrator with multiple marriage records
+    - Marriage used to legalize immigration status of victim
+    INTEL:
+    - Pattern of marriages preceding trafficking cases
+    - Cross-border marriage networks
+    - Marriage broker involvement
+    SANE:
+    - Victim describes marital rape
+    - Signs of domestic violence and sexual assault
+    - Reproductive coercion evidence
+    SW:
+    - Client in abusive marriage with exploitation indicators
+    - Marital isolation preventing service access
+    - Immigration status tied to marriage
+    VA:
+    - Survivor describes forced marriage
+    - Difficulty defining experience as trafficking due to marital status
+    - Spousal privilege complicating disclosure
+  mitigations:
+  - Forced marriage recognition and legal remedies
+  - Marriage immigration protection review
+  - Spousal abuse screening in healthcare
+  source_frameworks:
+  - Polaris Project
+  - UNODC
+- id: T0018
+  name: Travel/Adventure Promise
+  tactic_ids:
+  - TA0002
+  description: Threat actor recruits victims by promising travel, modeling opportunities, adventure experiences, or cultural
+    exchange programs, using wanderlust and desire for new experiences as exploitation entry point.
+  sub_techniques:
+  - id: T0018.001
+    name: Modeling Trip Fraud
+    description: Promising modeling, photography, or talent opportunities abroad
+  - id: T0018.002
+    name: Travel Companion Recruitment
+    description: Recruiting travel companion for trip that becomes trafficking situation
+  - id: T0018.003
+    name: Exchange Program Deception
+    description: Fraudulent educational or cultural exchange program leading to exploitation
+  - id: T0018.004
+    name: Vacation/Adventure Scam
+    description: Promised vacation or adventure turns into work/exploitation situation
+  indicators:
+    LE:
+    - Recruitment materials promising travel or modeling
+    - Passport confiscation upon arrival
+    - Victim arriving for stated purpose not provided
+    INTEL:
+    - Recruitment operation targeting adventurous youth
+    - Fake modeling/exchange program infrastructure
+    SANE:
+    - Victim reports arriving for travel/modeling opportunity
+    - Exploitation following international travel
+    SW:
+    - Youth client with wanderlust targeted by perpetrator
+    - Travel opportunity promises used for recruitment
+    VA:
+    - Survivor describes promises of travel/adventure
+    - Expectation management for post-trafficking travel desire
+  mitigations:
+  - Modeling/exchange program verification services
+  - Travel safety education for youth
+  - Peer warning systems
+  source_frameworks:
+  - Polaris Project
+  - UNODC
+- id: T0019
+  name: Social Media Influencer Recruitment
+  tactic_ids:
+  - TA0002
+  description: Threat actor creates or uses social media influencer personas with curated lifestyle content to attract vulnerable
+    followers, using aspirational lifestyle presentation as recruitment tool.
+  sub_techniques:
+  - id: T0019.001
+    name: Fake Influencer Account
+    description: Creating accounts with lifestyle content to attract vulnerable followers for recruitment
+  - id: T0019.002
+    name: Influencer Impersonation
+    description: Impersonating legitimate influencers to build false trust with followers
+  - id: T0019.003
+    name: Manager/Handler Persona
+    description: Creating professional 'manager' personas offering representation or sponsorship
+  indicators:
+    LE:
+    - Influencer account linked to trafficking perpetrator
+    - Multiple victims targeted through same influencer account
+    - Unrealistic lifestyle content with vulnerable follower base
+    INTEL:
+    - Network of influencer accounts with same controller
+    - Follower demographics analysis showing targeting
+    - Account creation patterns
+    SANE:
+    - Victim describes being recruited by influencer
+    - Parasocial relationship with online perpetrator
+    SW:
+    - Youth client following concerning influencer
+    - Influencer involvement in client's exploitation network
+    VA:
+    - Survivor describes attraction to lifestyle presentation
+    - Shame about being recruited through social media
+  mitigations:
+  - Social media literacy focused on influencer verification
+  - Platform influencer authentication
+  - Parasocial relationship education
+  source_frameworks:
+  - Polaris Project
+- id: T0020
+  name: Shelter/Homeless Outreach Exploitation
+  tactic_ids:
+  - TA0002
+  description: Threat actor targets homeless individuals or those in shelters by providing immediate needs (housing, food,
+    safety) with intent to create dependency and move into exploitation.
+  sub_techniques:
+  - id: T0020.001
+    name: Safe Housing Offer
+    description: Offering shelter or housing to homeless individual
+  - id: T0020.002
+    name: Meal/Basic Needs Provision
+    description: Building relationship through provision of food and daily necessities
+  - id: T0020.003
+    name: Shelter Staff Recruitment
+    description: Recruiting shelter or outreach workers as exploitation facilitators
+  indicators:
+    LE:
+    - Perpetrator frequenting shelters or homeless areas
+    - Housing provided by perpetrator
+    - Multiple victims from same shelter or location
+    INTEL:
+    - Shelter-based trafficking patterns
+    - Predatory outreach worker network
+    - Geographic clustering around shelter services
+    SANE:
+    - Victim reports housing instability preceding trafficking
+    - Shelter records of victim placement
+    SW:
+    - Client with recent homelessness experiencing exploitation
+    - Rapid housing placement preceding exploitation
+    VA:
+    - Survivor describes being housed and exploited
+    - Complexity of being grateful for shelter while exploited
+  mitigations:
+  - Shelter trafficking awareness training
+  - Victim screening in shelters
+  - Staff background checks and oversight
+  - Survivor-led shelter models
+  source_frameworks:
+  - Polaris Project
+- id: T0021
+  name: Immigration Assistance Deception
+  tactic_ids:
+  - TA0002
+  description: Threat actor recruits victims by promising immigration assistance (visa sponsorship, legal documentation, safe
+    passage) that comes with hidden exploitation obligations.
+  sub_techniques:
+  - id: T0021.001
+    name: Visa Sponsorship Promise
+    description: Promising legitimate work visa sponsorship in exchange for debt/obligation
+  - id: T0021.002
+    name: Document Facilitation Fraud
+    description: Promising forged or legitimate documentation assistance
+  - id: T0021.003
+    name: Smuggling into Debt Bondage
+    description: Smuggling victim into country with debt obligation for passage
+  indicators:
+    LE:
+    - Immigration-promised opportunities leading to trafficking
+    - Document fraud connected to trafficking
+    - Perpetrator operating as immigration facilitator
+    INTEL:
+    - Immigration fraud and trafficking network overlap
+    - Document procurement networks
+    - Smuggling routes with trafficking outcomes
+    SANE:
+    - Victim reports immigration promise as entry to trafficking
+    - Deportation anxiety in patient narrative
+    SW:
+    - Client promised immigration assistance by exploiter
+    - Immigration status uncertain due to fraudulent documentation
+    VA:
+    - Survivor describes immigration deception
+    - Barrier to disclosure due to immigration fear
+  mitigations:
+  - Immigration legal services
+  - Immigration fraud awareness
+  - Law enforcement coordination on immigration cases
+  - T-visa access
+  source_frameworks:
+  - ILO
+  - UNODC
+  - Polaris Project
+- id: T0022
+  name: Gang Initiation Recruitment
+  tactic_ids:
+  - TA0002
+  description: Threat actor recruits through gang initiation process that includes trafficking-like exploitation (forced sexual
+    activity, forced criminality, violence) as initiation requirement or gang maintenance.
+  sub_techniques:
+  - id: T0022.001
+    name: Initiation Sexual Assault
+    description: Rape or sexual assault as gang initiation requirement
+  - id: T0022.002
+    name: Forced Crime Participation
+    description: Committing crime (theft, drug distribution, violence) as initiation
+  - id: T0022.003
+    name: Exploitation Maintenance
+    description: Continued gang-required trafficking of member or member's family
+  indicators:
+    LE:
+    - Gang involvement in trafficking cases
+    - Initiation involving sexual assault or forced crime
+    - Gang-related exploitation operations
+    INTEL:
+    - Gang-trafficking nexus patterns
+    - Gang territory overlaid with trafficking operations
+    SANE:
+    - Victim describes gang initiation involving sexual assault
+    - Gang tattoos or identifiers present
+    - Violence consistent with gang affiliation
+    SW:
+    - Youth client with gang affiliation and trafficking indicators
+    - Family member in gang with trafficking involvement
+    VA:
+    - Survivor describes gang initiation through exploitation
+    - Loyalty conflict between gang and freedom
+    - Violence trauma from initiation
+  mitigations:
+  - Gang exit programs with trafficking screening
+  - Gang violence intervention with trafficking education
+  - Law enforcement gang-trafficking coordination
+  source_frameworks:
+  - Polaris Project
+- id: T0023
+  name: Trauma-Informed Manipulation
+  tactic_ids:
+  - TA0002
+  description: Threat actor deliberately leverages knowledge of victim's prior trauma (abuse, abandonment, loss) to manipulate,
+    using targeted emotional appeals designed to exploit specific vulnerabilities.
+  sub_techniques:
+  - id: T0023.001
+    name: Abandonment Fear Exploitation
+    description: Creating situations where victim fears abandonment to maintain control
+  - id: T0023.002
+    name: Authority Figure Replication
+    description: Perpetrator mimicking characteristics of prior abuser to normalize abuse
+  - id: T0023.003
+    name: Healing Promise Manipulation
+    description: Offering healing or help for trauma as entry to exploitation
+  indicators:
+    LE:
+    - Perpetrator familiar with victim's trauma history
+    - Manipulation tactics reflecting victim's specific vulnerabilities
+    INTEL:
+    - Pattern of perpetrators targeting trauma survivors
+    - Tailored grooming to trauma profile
+    SANE:
+    - Victim describes perpetrator understanding their trauma
+    - Trauma responses aligned with perpetrator's abuse pattern
+    SW:
+    - Perpetrator gaining knowledge of client trauma history
+    - Trauma being weaponized in relationship
+    VA:
+    - Survivor describes targeted emotional manipulation
+    - Perpetrator knowledge of specific vulnerabilities
+    - Healing help offered as entry to trafficking
+  mitigations:
+  - Trauma-informed service provision
+  - Trauma-informed law enforcement training
+  - Perpetrator intelligence on trauma targets
+  source_frameworks:
+  - Biderman
+  - Hassan BITE Model
+- id: T0024
+  name: Normalized Exploitation Environment
+  tactic_ids:
+  - TA0002
+  description: Threat actor recruits victim into environment where exploitation appears normal, socially accepted, or expected
+    due to community/subcultural norms or peer behavior.
+  sub_techniques:
+  - id: T0024.001
+    name: Exploitation-Normalizing Peer Group
+    description: Recruiting into peer group where sexual exploitation or forced labor is normalized
+  - id: T0024.002
+    name: Community Exploitation Expectation
+    description: Recruiting from community with exploitation as economic or social norm
+  - id: T0024.003
+    name: Entry Through Legitimate Activity
+    description: Gradually shifting legitimate group participation toward exploitation
+  indicators:
+    LE:
+    - Victim from community/subculture with exploitation norms
+    - Exploitation surrounded by apparently normalizing context
+    INTEL:
+    - Geographic or subcultural trafficking patterns
+    - Community-embedded trafficking operations
+    SANE:
+    - Victim describes exploitation as 'normal' for their context
+    - Difficulty identifying experience as exploitation
+    SW:
+    - Client from high-exploitation-prevalence community
+    - Normalized exploitation in client peer group
+    VA:
+    - Survivor describes exploitation as 'normal' in their world
+    - Difficulty conceptualizing experience as trafficking
+  mitigations:
+  - Community-based prevention education
+  - Alternative peer group development
+  - Culturally-informed intervention
+  source_frameworks:
+  - Polaris Project
+  - Crime Script Analysis
+- id: T0025
+  name: Document Confiscation
+  tactic_ids:
+  - TA0003
+  description: Threat actor seizes, destroys, or withholds victim's identity documents (passport, visa, ID, Social Security
+    card, birth certificate) to prevent escape, restrict mobility, and maintain control.
+  sub_techniques:
+  - id: T0025.001
+    name: Passport/Visa Seizure
+    description: Taking immigration documents upon arrival or during recruitment
+  - id: T0025.002
+    name: Identity Document Destruction
+    description: Deliberately destroying documents to prevent victim from proving identity
+  - id: T0025.003
+    name: Document Fabrication
+    description: Creating false identity documents to alter victim's perceived identity
+  indicators:
+    LE:
+    - Victim lacks identification
+    - Documents held by third party
+    - Fabricated documents recovered
+    INTEL:
+    - Document confiscation patterns across cases
+    - False document production infrastructure
+    SANE:
+    - Patient unable to provide identification
+    - Patient describes documents being taken
+    SW:
+    - Client lacks all identification
+    - Client describes documents held by employer/partner
+    VA:
+    - Survivor reports document confiscation as control mechanism
+    - Document replacement needed
+  mitigations:
+  - Rapid document replacement programs
+  - Legal assistance for identity restoration
+  - Worker education about document rights
+  source_frameworks:
+  - ILO
+  - UNODC
+  - Biderman
+- id: T0026
+  name: Physical Confinement
+  tactic_ids:
+  - TA0003
+  description: Restricting victim's physical movement through locked rooms, guarded locations, physical restraint, or geographic
+    isolation.
+  sub_techniques:
+  - id: T0026.001
+    name: Locked Premises
+    description: Locking victims in rooms, buildings, or compounds
+  - id: T0026.002
+    name: Physical Restraint
+    description: Use of chains, handcuffs, or other physical binding
+  - id: T0026.003
+    name: Geographic Isolation
+    description: Placing victims in remote locations without transportation access
+  indicators:
+    LE:
+    - Locked doors/windows from outside
+    - Physical restraint evidence
+    - Victims in remote locations without transportation
+    INTEL:
+    - Location analysis showing isolation patterns
+    - Property records of remote holding locations
+    SANE:
+    - Ligature marks
+    - Injuries consistent with confinement
+    - Vitamin D deficiency from indoor confinement
+    SW:
+    - Client describes restricted movement
+    - Client describes locked living quarters
+    VA:
+    - Survivor describes confinement
+    - Survivor unable to leave location
+  mitigations:
+  - Welfare checks on isolated properties
+  - Hotline/reporting access for confined victims
+  - Community notification programs
+  source_frameworks:
+  - Biderman
+  - UNODC
+  - ILO
+- id: T0027
+  name: Financial Control
+  tactic_ids:
+  - TA0003
+  description: Controlling all financial resources, taking victim's earnings, managing bank accounts, preventing financial
+    independence.
+  sub_techniques:
+  - id: T0027.001
+    name: Wage Theft/Withholding
+    description: Taking all or most of victim's earnings
+  - id: T0027.002
+    name: Bank Account Control
+    description: Managing victim's bank accounts or opening accounts in victim's name
+  - id: T0027.003
+    name: Manufactured Debt
+    description: Creating inflated debts for housing, food, transportation to justify wage retention
+  indicators:
+    LE:
+    - Financial records showing wage theft
+    - Bank accounts controlled by perpetrator
+    - Inflated expense deductions
+    INTEL:
+    - Financial flow patterns from victims to perpetrators
+    - Structured deposits indicating trafficking revenue
+    SANE:
+    - Patient reports having no access to money
+    - Malnutrition despite working
+    SW:
+    - Client has no financial resources
+    - Client unable to access own earnings
+    VA:
+    - Survivor reports complete financial control
+    - Financial recovery planning needed
+  mitigations:
+  - Financial literacy education
+  - Survivor financial recovery programs
+  - Banking access for trafficking survivors
+  - Emergency financial assistance
+  source_frameworks:
+  - ILO
+  - Polaris Project
+- id: T0028
+  name: Communication Restriction
+  tactic_ids:
+  - TA0003
+  description: Controlling victim's ability to communicate with outside world including family, friends, authorities, and
+    service providers.
+  sub_techniques:
+  - id: T0028.001
+    name: Phone Confiscation
+    description: Taking victim's phone or providing controlled device
+  - id: T0028.002
+    name: Monitored Communication
+    description: Allowing limited communication under surveillance
+  - id: T0028.003
+    name: Language Barrier Exploitation
+    description: Exploiting language barriers to prevent meaningful communication with outside world
+  indicators:
+    LE:
+    - Victim lacks personal communication device
+    - All communications through perpetrator's device
+    - Monitored phone/internet usage
+    INTEL:
+    - Communication patterns showing restriction
+    - Device analysis showing controlled usage
+    SANE:
+    - Patient communicating through third party
+    - Patient unable to communicate without interpreter provided by companion
+    SW:
+    - Client communication controlled by third party
+    - Client unable to contact family independently
+    VA:
+    - Survivor describes communication restriction
+    - Need for independent communication access
+  mitigations:
+  - Safe communication access for at-risk populations
+  - Multilingual hotline services
+  - Interpretation services without trafficker present
+  source_frameworks:
+  - Biderman
+  - Hassan BITE Model
+- id: T0029
+  name: Identity Stripping
+  tactic_ids:
+  - TA0003
+  description: Systematic destruction of victim's identity through renaming, rebranding, forced appearance changes, and disconnection
+    from personal history.
+  sub_techniques:
+  - id: T0029.001
+    name: Renaming/Nicknaming
+    description: Assigning new name, alias, or nickname to replace victim's identity
+  - id: T0029.002
+    name: Forced Appearance Alteration
+    description: Forcing changes to hair, clothing, body modifications (tattoos, brands)
+  - id: T0029.003
+    name: Digital Identity Erasure
+    description: Deleting or taking over victim's social media accounts and digital presence
+  - id: T0029.004
+    name: Cultural Identity Suppression
+    description: Prohibiting cultural practices, language use, religious observance
+  indicators:
+    LE:
+    - Victim using alias
+    - Branding/tattoo marks
+    - Social media account takeover evidence
+    INTEL:
+    - Identity alteration patterns across cases
+    - Branding as organizational marker
+    SANE:
+    - Branding marks, forced tattoos
+    - Patient using name that may not be their own
+    - Appearance alteration evidence
+    SW:
+    - Client with unclear identity history
+    - Client describes forced identity changes
+    VA:
+    - Survivor describes identity loss
+    - Identity restoration support needed
+  mitigations:
+  - Identity restoration services
+  - Cultural reconnection programs
+  - Digital identity recovery
+  - Cultural competency training
+  source_frameworks:
+  - Biderman
+  - Hassan BITE Model
+- id: T0030
+  name: Substance Dependency Induction
+  tactic_ids:
+  - TA0003
+  description: Deliberately creating or maintaining substance dependency to ensure compliance and prevent escape.
+  sub_techniques:
+  - id: T0030.001
+    name: Forced Drug Administration
+    description: Administering drugs without consent to create dependency
+  - id: T0030.002
+    name: Supply-Dependent Control
+    description: Providing drugs to maintain existing dependency as control mechanism
+  indicators:
+    LE:
+    - Drug supply connected to trafficking operation
+    - Victim dependency created/maintained by perpetrator
+    INTEL:
+    - Drug-trafficking and human-trafficking operational integration
+    SANE:
+    - Substance use evidence
+    - Track marks
+    - Withdrawal symptoms
+    - Toxicology findings
+    SW:
+    - Client substance use disorder maintained by exploiter
+    - Co-occurring trafficking and substance use
+    VA:
+    - Survivor reports substance control
+    - Integrated recovery support needed
+  mitigations:
+  - Integrated substance use and trafficking treatment
+  - Harm reduction with trafficking screening
+  - Addiction counseling for survivors
+  source_frameworks:
+  - Polaris Project
+  - Biderman
+- id: T0031
+  name: Surveillance & Monitoring
+  tactic_ids:
+  - TA0003
+  description: Continuous monitoring of victim through physical surveillance, electronic tracking, and informant networks.
+  sub_techniques:
+  - id: T0031.001
+    name: Physical Surveillance
+    description: Assigning watchers, escorts, or using camera systems
+  - id: T0031.002
+    name: Electronic Tracking
+    description: GPS tracking, phone monitoring, social media monitoring
+  - id: T0031.003
+    name: Informant Networks
+    description: Using other victims or community members to monitor and report
+  indicators:
+    LE:
+    - Surveillance equipment at exploitation location
+    - GPS tracking devices
+    - Victim describes constant monitoring
+    INTEL:
+    - Surveillance infrastructure patterns
+    - Technology procurement records
+    SANE:
+    - Patient describes being watched constantly
+    - Hypervigilance consistent with surveillance
+    SW:
+    - Client reports constant monitoring
+    - Client unable to attend appointments alone
+    VA:
+    - Survivor describes omnipresent surveillance
+    - Safety planning must account for monitoring
+  mitigations:
+  - Electronic surveillance detection
+  - Safe meeting locations
+  - Counter-surveillance in safety planning
+  - Secure communication channels
+  source_frameworks:
+  - Biderman
+  - Hassan BITE Model
+- id: T0032
+  name: Trauma Bonding
+  tactic_ids:
+  - TA0003
+  description: Creating psychological attachment between victim and trafficker through alternating abuse and affection, creating
+    emotional dependency that prevents escape.
+  sub_techniques:
+  - id: T0032.001
+    name: Intermittent Reinforcement
+    description: Unpredictable alternation of punishment and reward
+  - id: T0032.002
+    name: Learned Helplessness Induction
+    description: Systematic undermining of victim's belief in their ability to escape or survive independently
+  indicators:
+    LE:
+    - Victim defending perpetrator
+    - Victim returning to perpetrator after rescue
+    - Victim refusing to cooperate with investigation
+    INTEL:
+    - Victim-perpetrator relationship patterns indicating trauma bond
+    SANE:
+    - Patient describes conflicting feelings about perpetrator
+    - Attachment to abuser evident in interview
+    SW:
+    - Client returning to exploitative situation
+    - Client defending perpetrator's behavior
+    VA:
+    - Survivor expresses love for trafficker
+    - Ambivalence about leaving
+    - Bond as barrier to engagement
+  mitigations:
+  - Trauma bond education
+  - Specialized trauma therapy
+  - Long-term engagement with no-pressure approach
+  - Peer support programs
+  source_frameworks:
+  - Biderman
+  - Zimmerman et al.
+- id: T0033
+  name: Commercial Sex Operations
+  tactic_ids:
+  - TA0004
+  description: Forced participation in commercial sexual activity including escort services, street-based prostitution, brothels,
+    strip clubs, and online sexual services.
+  sub_techniques:
+  - id: T0033.001
+    name: Escort/Outcall Operations
+    description: Delivering victims to buyers at hotels, residences
+  - id: T0033.002
+    name: Street-Based Operations
+    description: Forcing victims to solicit on 'tracks' or 'strolls'
+  - id: T0033.003
+    name: Brothel Operations
+    description: Operating from fixed locations (residential, commercial)
+  - id: T0033.004
+    name: Illicit Massage Business
+    description: Operating commercial sex under facade of massage/spa business
+  - id: T0033.005
+    name: Bar/Club Based Operations
+    description: Commercial sex integrated with bar, club, or cantina operations
+  indicators:
+    LE:
+    - Online ads for commercial sex
+    - Hotel records
+    - Financial transactions from buyers
+    - Multiple victims at single location
+    INTEL:
+    - Advertising patterns
+    - Geographic clustering of commercial sex venues
+    - Network connections between venues
+    SANE:
+    - STI evidence
+    - Genital/anal trauma
+    - Multiple partner exposure evidence
+    - Contraceptive evidence
+    SW:
+    - Client describes being sold for sex
+    - Client with commercial sex history under coercion
+    VA:
+    - Survivor narrative of commercial sexual exploitation
+    - Legal remedies for sex trafficking
+  mitigations:
+  - Demand reduction operations
+  - Venue inspections
+  - Online advertisement monitoring
+  - Buyer accountability programs
+  source_frameworks:
+  - Polaris Project
+- id: T0034
+  name: Forced Labor Operations
+  tactic_ids:
+  - TA0004
+  description: Forcing victims to perform labor under coercion across industries including agriculture, domestic work, construction,
+    restaurants, manufacturing, and others.
+  sub_techniques:
+  - id: T0034.001
+    name: Agricultural Exploitation
+    description: Forced labor in farming, ranching, or food processing
+  - id: T0034.002
+    name: Domestic Servitude
+    description: Forced household labor in private homes
+  - id: T0034.003
+    name: Construction/Manufacturing
+    description: Forced labor in construction, factory, or industrial settings
+  - id: T0034.004
+    name: Restaurant/Hospitality
+    description: Forced labor in restaurants, hotels, or hospitality
+  - id: T0034.005
+    name: Traveling Sales Crews
+    description: Forced participation in door-to-door sales operations
+  indicators:
+    LE:
+    - Labor violations
+    - Workers unable to leave
+    - Wage theft evidence
+    - Housing controlled by employer
+    INTEL:
+    - Labor trafficking patterns by industry
+    - Seasonal labor trafficking operations
+    SANE:
+    - Occupational injuries without medical care
+    - Malnutrition
+    - Exhaustion
+    - Repetitive strain injuries
+    SW:
+    - Client describes forced labor
+    - Client living at workplace
+    - Client wages withheld
+    VA:
+    - Survivor describes labor exploitation
+    - Labor rights remedies needed
+  mitigations:
+  - Labor inspections
+  - Worker rights education
+  - Industry-specific trafficking prevention
+  - Supply chain monitoring
+  source_frameworks:
+  - Polaris Project
+  - ILO
+- id: T0035
+  name: Forced Criminality
+  tactic_ids:
+  - TA0004
+  description: Forcing victims to participate in criminal activities including drug distribution, theft, fraud, or other illegal
+    operations.
+  sub_techniques:
+  - id: T0035.001
+    name: Drug Distribution
+    description: Forcing victims to sell or transport drugs
+  - id: T0035.002
+    name: Theft/Shoplifting
+    description: Forcing victims to steal
+  - id: T0035.003
+    name: Financial Fraud
+    description: Forcing victims to participate in identity theft, check fraud, or credit fraud
+  indicators:
+    LE:
+    - Criminal suspect who appears coerced
+    - Youth drug distribution under adult control
+    - Identity theft by controlled individual
+    INTEL:
+    - Patterns of coerced criminality
+    - Criminal operations using coerced labor
+    SANE:
+    - Injuries from criminal activity involvement
+    - Stress presentations from criminal coercion
+    SW:
+    - Client with criminal charges arising from trafficking
+    - Criminal record as barrier to services
+    VA:
+    - Survivor with criminal record from trafficking-related activity
+    - Vacatur/expungement assistance needed
+  mitigations:
+  - Trafficking screening in criminal justice
+  - Vacatur legislation
+  - Victim identification training for LE
+  source_frameworks:
+  - UNODC
+  - Polaris Project
+- id: T0036
+  name: Pornography Production
+  tactic_ids:
+  - TA0004
+  description: Forcing victims to participate in production of pornographic images or video for commercial distribution or
+    personal use.
+  sub_techniques:
+  - id: T0036.001
+    name: Commercial Pornography Production
+    description: Producing pornographic content for commercial distribution
+  - id: T0036.002
+    name: Personal Image Production
+    description: Producing intimate images for personal collection or sharing
+  - id: T0036.003
+    name: Live-Streaming Exploitation
+    description: Live-streaming sexual exploitation for remote viewers/buyers
+  indicators:
+    LE:
+    - Image/video evidence
+    - Production equipment
+    - Distribution platform evidence
+    - Payment records from viewers
+    INTEL:
+    - Production and distribution networks
+    - Platform analysis
+    - Revenue streams
+    SANE:
+    - Evidence of forced sexual activity documentation
+    - Injuries from forced performance
+    SW:
+    - Client describes forced image production
+    - Image distribution as ongoing control threat
+    VA:
+    - Survivor describes image-based exploitation
+    - Image removal assistance needed
+    - Ongoing distribution harm
+  mitigations:
+  - Platform reporting and removal
+  - CSAM detection technology
+  - Image hash databases
+  - Legal remedies for image removal
+  source_frameworks:
+  - Polaris Project
+- id: T0037
+  name: Forced Begging
+  tactic_ids:
+  - TA0004
+  description: Forcing victims (often children or individuals with disabilities) to beg on streets or solicit donations under
+    trafficker's control.
+  sub_techniques:
+  - id: T0037.001
+    name: Street Begging
+    description: Placing victims on streets to collect money from passersby
+  - id: T0037.002
+    name: Organized Charity Fraud
+    description: Using victims as front for fraudulent charitable solicitation
+  indicators:
+    LE:
+    - Organized begging operations
+    - Children begging under adult supervision
+    - Revenue collection by third party
+    INTEL:
+    - Begging operation networks
+    - Geographic patterns
+    - Organizational structures
+    SANE:
+    - Signs of neglect in begging victim
+    - Exposure-related health effects
+    SW:
+    - Child/vulnerable adult client involved in begging under third-party control
+    VA:
+    - Survivor describes forced begging
+    - Economic exploitation remedies
+  mitigations:
+  - Community education on organized begging
+  - Outreach to begging populations
+  - Child protective services engagement
+  source_frameworks:
+  - Polaris Project
+  - UNODC
+- id: T0038
+  name: Personal Servitude
+  tactic_ids:
+  - TA0004
+  description: Exploitation for personal services to individual buyer/owner including sexual, domestic, and personal services
+    in ongoing captive arrangement.
+  sub_techniques:
+  - id: T0038.001
+    name: Sexual Servitude
+    description: Ongoing sexual exploitation by single individual
+  - id: T0038.002
+    name: Domestic Servitude
+    description: Forced domestic service in private home
+  indicators:
+    LE:
+    - Single victim with single perpetrator in residential setting
+    - Long-term captive situation
+    INTEL:
+    - Individual servitude patterns
+    - Residential exploitation locations
+    SANE:
+    - Long-term captivity evidence
+    - Complex trauma presentation
+    - Multiple types of injury over time
+    SW:
+    - Client describes long-term captive servitude
+    - Extreme isolation and dependency
+    VA:
+    - Survivor describes personal servitude
+    - Extreme identity and autonomy loss
+  mitigations:
+  - Residential welfare checks
+  - Mandatory reporting for domestic workers
+  - Immigration protections for domestic workers
+  source_frameworks:
+  - Polaris Project
+- id: T0039
+  name: Frequent Relocation
+  tactic_ids:
+  - TA0005
+  description: Regularly moving victims between locations to prevent identification, disrupt potential rescue, and maintain
+    disorientation.
+  sub_techniques:
+  - id: T0039.001
+    name: Circuit Trafficking
+    description: Moving victims through regular circuit of cities/locations
+  - id: T0039.002
+    name: Event-Based Movement
+    description: Moving victims to follow events (conventions, sporting events, harvest seasons)
+  indicators:
+    LE:
+    - Hotel records showing multiple locations
+    - Transportation evidence
+    - Victim reports of multiple exploitation locations
+    INTEL:
+    - Movement patterns
+    - Circuit maps
+    - Event-correlated trafficking
+    SANE:
+    - Patient from out of area
+    - Patient unsure of current location
+    - Disorientation
+    SW:
+    - Client describes frequent moves
+    - Client has no stable address
+    VA:
+    - Survivor describes constant relocation
+    - Multiple jurisdictions involved
+  mitigations:
+  - Cross-jurisdictional investigation coordination
+  - Hotel industry training
+  - Transportation industry awareness
+  source_frameworks:
+  - Polaris Project
+  - Crime Script Analysis
+- id: T0040
+  name: Legal Facade Maintenance
+  tactic_ids:
+  - TA0005
+  description: Maintaining appearance of legitimate business operations to conceal trafficking activity.
+  sub_techniques:
+  - id: T0040.001
+    name: Business License/Registration
+    description: Maintaining legitimate business licenses and registrations
+  - id: T0040.002
+    name: Tax Filing Compliance
+    description: Filing taxes on portion of proceeds to appear legitimate
+  - id: T0040.003
+    name: Worker Documentation Fraud
+    description: Creating false employment documentation for victims
+  indicators:
+    LE:
+    - Business with trafficking indicators maintaining licenses
+    - Tax filings inconsistent with actual revenue
+    INTEL:
+    - Business front patterns
+    - License/registration analysis
+    - Corporate structure obfuscation
+    SANE:
+    - N/A - primarily investigative/intelligence domain
+    SW:
+    - Client describes working in 'legitimate' business under exploitative conditions
+    VA:
+    - Survivor describes business front concealing exploitation
+  mitigations:
+  - Business inspection protocols
+  - Cross-agency information sharing
+  - Industry-specific trafficking indicators
+  source_frameworks:
+  - Polaris Project
+  - Crime Script Analysis
+- id: T0041
+  name: Witness Intimidation
+  tactic_ids:
+  - TA0005
+  description: Threatening victims, witnesses, and their families to prevent cooperation with law enforcement or service providers.
+  sub_techniques:
+  - id: T0041.001
+    name: Direct Victim Threats
+    description: Threatening physical harm to victim or victim's family
+  - id: T0041.002
+    name: Retaliation Demonstration
+    description: Harming another victim to demonstrate consequences of cooperation
+  - id: T0041.003
+    name: Legal Threats
+    description: Threatening criminal prosecution, deportation, or custody loss
+  indicators:
+    LE:
+    - Victim recanting statements
+    - Victim fear of specific individuals
+    - Threats documented in communications
+    INTEL:
+    - Intimidation patterns across cases
+    - Retaliation incidents
+    SANE:
+    - Patient expressing fear of retaliation
+    - Reluctance to document injuries
+    SW:
+    - Client withdrawing from services after threats
+    - Client describing threats to family
+    VA:
+    - Survivor describes intimidation
+    - Safety planning for witness protection
+    - Protective order assistance
+  mitigations:
+  - Witness protection programs
+  - Protective orders
+  - Safe housing
+  - Victim-witness coordination
+  source_frameworks:
+  - Biderman
+  - UNODC
+- id: T0042
+  name: Corruption of Officials
+  tactic_ids:
+  - TA0005
+  description: Bribing or coercing law enforcement, government officials, or other authority figures to facilitate trafficking
+    operations and prevent investigation.
+  sub_techniques:
+  - id: T0042.001
+    name: Law Enforcement Corruption
+    description: Bribing police, border agents, or prosecutors
+  - id: T0042.002
+    name: Government Official Corruption
+    description: Bribing immigration officials, labor inspectors, or licensing authorities
+  indicators:
+    LE:
+    - Tip-offs about operations preceding raids
+    - Investigation interference
+    - Officers with unexplained financial activity
+    INTEL:
+    - Corruption patterns in trafficking regions
+    - Official involvement in trafficking networks
+    SANE:
+    - N/A
+    SW:
+    - Client describes officials involved in trafficking
+    - Client distrust of authorities
+    VA:
+    - Survivor reports official corruption
+    - Trust barriers with law enforcement
+  mitigations:
+  - Anti-corruption investigations
+  - Whistleblower protections
+  - Internal affairs oversight
+  source_frameworks:
+  - UNODC
+- id: T0043
+  name: Digital Security Operations
+  tactic_ids:
+  - TA0005
+  description: Using encrypted communications, anonymization tools, and digital security practices to evade detection.
+  sub_techniques:
+  - id: T0043.001
+    name: Encrypted Communications
+    description: Using encrypted messaging apps for operational communication
+  - id: T0043.002
+    name: Dark Web Operations
+    description: Conducting trafficking operations on dark web platforms
+  - id: T0043.003
+    name: Digital Evidence Destruction
+    description: Regularly deleting communications, using burner devices
+  indicators:
+    LE:
+    - Encrypted communication evidence
+    - Burner phone usage patterns
+    - Dark web marketplace activity
+    INTEL:
+    - Digital operational security patterns
+    - Platform migration patterns
+    SANE:
+    - N/A
+    SW:
+    - N/A
+    VA:
+    - N/A - primarily investigative domain
+  mitigations:
+  - Digital forensics capabilities
+  - Platform cooperation
+  - Cryptocurrency tracing
+  source_frameworks:
+  - MITRE ATT&CK
+- id: T0044
+  name: Cash-Intensive Business Fronts
+  tactic_ids:
+  - TA0006
+  description: Using cash-heavy businesses to commingle trafficking proceeds with legitimate revenue.
+  sub_techniques:
+  - id: T0044.001
+    name: Restaurant/Bar Front
+    description: Using food service business to launder trafficking proceeds
+  - id: T0044.002
+    name: Nail Salon/Spa Front
+    description: Using personal service business as combined trafficking and laundering operation
+  - id: T0044.003
+    name: Convenience Store/Laundromat
+    description: Using cash-intensive retail to commingle proceeds
+  indicators:
+    LE:
+    - Cash deposits inconsistent with business volume
+    - Business with trafficking indicators
+    - Multiple businesses under same ownership
+    INTEL:
+    - Business front patterns
+    - Financial analysis showing revenue anomalies
+    SANE:
+    - N/A
+    SW:
+    - Client describes working in business front
+    - Revenue from exploitation flowing through business
+    VA:
+    - Survivor describes business used for laundering
+  mitigations:
+  - Financial institution reporting
+  - Business inspection protocols
+  - FinCEN suspicious activity reporting
+  source_frameworks:
+  - Polaris Project
+  - Crime Script Analysis
+- id: T0045
+  name: Cryptocurrency Laundering
+  tactic_ids:
+  - TA0006
+  description: Using cryptocurrency for trafficking payments, revenue collection, and money laundering.
+  sub_techniques:
+  - id: T0045.001
+    name: Bitcoin/Crypto Payment Collection
+    description: Accepting cryptocurrency payment for trafficking services
+  - id: T0045.002
+    name: Mixing/Tumbling Services
+    description: Using cryptocurrency mixing to obscure transaction origins
+  indicators:
+    LE:
+    - Cryptocurrency wallet addresses in trafficking ads
+    - Blockchain transaction patterns
+    - Crypto exchange account activity
+    INTEL:
+    - Cryptocurrency flow analysis
+    - Wallet clustering across trafficking operations
+    SANE:
+    - N/A
+    SW:
+    - N/A
+    VA:
+    - N/A - primarily investigative domain
+  mitigations:
+  - Blockchain analysis tools
+  - Cryptocurrency exchange KYC requirements
+  - Cross-agency financial intelligence
+  source_frameworks:
+  - MITRE ATT&CK
+- id: T0046
+  name: Forced Financial Fraud
+  tactic_ids:
+  - TA0006
+  description: Using victims' identities for financial fraud including opening accounts, taking loans, filing taxes, and conducting
+    identity theft.
+  sub_techniques:
+  - id: T0046.001
+    name: Identity Theft Using Victim's Information
+    description: Using victim's SSN, ID for credit cards, loans, bank accounts
+  - id: T0046.002
+    name: Synthetic Identity Fraud
+    description: Combining victim's real information with fabricated data to create new identities
+  - id: T0046.003
+    name: Money Mule Operations
+    description: Using victims as money mules to move funds through their accounts
+  indicators:
+    LE:
+    - Identity theft reports linked to trafficking
+    - Financial accounts in victim's name controlled by perpetrator
+    - Money mule patterns
+    INTEL:
+    - Synthetic identity fraud networks
+    - Financial fraud patterns connected to trafficking
+    SANE:
+    - Patient reports identity used for fraud
+    - Financial exploitation as part of trafficking
+    SW:
+    - Client with damaged credit from fraud
+    - Client identity used without consent
+    VA:
+    - Survivor with financial fraud damage
+    - Identity theft recovery assistance needed
+    - Credit repair support
+  mitigations:
+  - Identity theft victim assistance
+  - Credit monitoring for trafficking survivors
+  - Financial institution trafficking awareness
+  source_frameworks:
+  - Polaris Project
+- id: T0047
+  name: Structured Financial Transactions
+  tactic_ids:
+  - TA0006
+  description: Breaking financial transactions into amounts below reporting thresholds to avoid detection.
+  sub_techniques:
+  - id: T0047.001
+    name: Cash Structuring
+    description: Depositing cash in amounts under $10,000 to avoid CTR filing
+  - id: T0047.002
+    name: Prepaid Card Loading
+    description: Loading trafficking proceeds onto prepaid debit cards
+  indicators:
+    LE:
+    - Structured deposit patterns
+    - Multiple prepaid card purchases
+    - Currency transaction reports
+    INTEL:
+    - Financial structuring patterns
+    - Prepaid card network analysis
+    SANE:
+    - N/A
+    SW:
+    - N/A
+    VA:
+    - N/A - primarily investigative domain
+  mitigations:
+  - Financial institution SAR filing
+  - Prepaid card monitoring
+  - FinCEN intelligence
+  source_frameworks:
+  - Crime Script Analysis
+- id: T0048
+  name: Real Estate/Asset Acquisition
+  tactic_ids:
+  - TA0006
+  description: Investing trafficking proceeds in real estate, vehicles, luxury goods, and other assets.
+  sub_techniques:
+  - id: T0048.001
+    name: Property Purchase
+    description: Buying residential or commercial property with trafficking proceeds
+  - id: T0048.002
+    name: Shell Company Ownership
+    description: Using shell companies to obscure beneficial ownership of assets
+  indicators:
+    LE:
+    - Property purchases inconsistent with legitimate income
+    - Shell company ownership
+    - Asset forfeiture targets
+    INTEL:
+    - Property records analysis
+    - Corporate structure analysis
+    - Beneficial ownership investigation
+    SANE:
+    - N/A
+    SW:
+    - N/A
+    VA:
+    - N/A - primarily investigative domain
+  mitigations:
+  - Beneficial ownership transparency requirements
+  - Real estate transaction monitoring
+  - Asset forfeiture programs
+  source_frameworks:
+  - Crime Script Analysis
+threat_actors:
+- id: ACT001
+  name: Intimate Partner Trafficker
+  description: Exercises coercion within existing romantic or family relationship, using isolation, degradation, and threats.
+    Typically controls one or few victims through established emotional leverage.
+  primary_tactics:
+  - TA0002
+  - TA0003
+  - TA0004
+  characteristic_techniques:
+  - T0003
+  - T0009
+  - T0025
+  - T0026
+  - T0028
+  organizational_complexity: low
+  typical_victim_count: 1-3
+- id: ACT002
+  name: Labor Trafficker (Individual Scale)
+  description: Operates small-scale labor trafficking often in agriculture, construction, or domestic service, using debt
+    bondage and movement restriction as primary coercion.
+  primary_tactics:
+  - TA0001
+  - TA0003
+  - TA0004
+  characteristic_techniques:
+  - T0001
+  - T0004
+  - T0030
+  - T0031
+  - T0033
+  organizational_complexity: low-medium
+  typical_victim_count: 1-10
+- id: ACT003
+  name: Commercial Sexual Exploitation Network
+  description: Involves pimps, facilitators, and customers in commodification of victim body, using coercion and psychological
+    manipulation. Network structure with defined roles.
+  primary_tactics:
+  - TA0002
+  - TA0003
+  - TA0004
+  - TA0006
+  characteristic_techniques:
+  - T0009
+  - T0013
+  - T0026
+  - T0034
+  - T0044
+  organizational_complexity: medium-high
+  typical_victim_count: 5-50
+- id: ACT004
+  name: Organized Crime Affiliated Trafficker
+  description: Operates as part of larger criminal organization with diversified revenue (drugs, weapons, trafficking), using
+    organizational resources and institutional corruption.
+  primary_tactics:
+  - TA0001
+  - TA0003
+  - TA0005
+  - TA0006
+  characteristic_techniques:
+  - T0001
+  - T0025
+  - T0041
+  - T0044
+  - T0048
+  organizational_complexity: high
+  typical_victim_count: 10-100+
+- id: ACT005
+  name: Labor Trafficking Enterprise
+  description: Large-scale coordinated labor trafficking across multiple work sites and regions, using supply chain integration
+    and franchising. Corporate-like structure.
+  primary_tactics:
+  - TA0001
+  - TA0004
+  - TA0005
+  - TA0006
+  characteristic_techniques:
+  - T0001
+  - T0004
+  - T0033
+  - T0045
+  - T0046
+  organizational_complexity: high
+  typical_victim_count: 50-500+
+- id: ACT006
+  name: Sex Trafficking Marketplace Operator
+  description: Leverages online platforms for victim advertising and client coordination. Technology-mediated operations enabling
+    geographic reach without physical presence.
+  primary_tactics:
+  - TA0002
+  - TA0005
+  - TA0006
+  characteristic_techniques:
+  - T0009
+  - T0017
+  - T0039
+  - T0048
+  organizational_complexity: medium
+  typical_victim_count: 10-100
+- id: ACT007
+  name: Polycriminal Trafficker
+  description: Engages trafficking alongside document fraud, human smuggling, and immigration crimes. Diversified criminal
+    portfolio with trafficking as one revenue stream.
+  primary_tactics:
+  - TA0002
+  - TA0004
+  - TA0005
+  characteristic_techniques:
+  - T0004
+  - T0035
+  - T0037
+  - T0041
+  organizational_complexity: medium-high
+  typical_victim_count: 5-50
+- id: ACT008
+  name: Youth-Targeted Trafficker
+  description: Specializes in recruitment of minors through targeted vulnerability exploitation, often online. Preys on youth
+    in foster care, juvenile justice, or experiencing homelessness.
+  primary_tactics:
+  - TA0001
+  - TA0002
+  - TA0003
+  characteristic_techniques:
+  - T0003
+  - T0005
+  - T0014
+  - T0015
+  - T0016
+  organizational_complexity: low-medium
+  typical_victim_count: 3-20
+- id: ACT009
+  name: Institutional Trafficker
+  description: Exploits institutional access (religious authority, youth services, foster care systems) for trafficking. Uses
+    position of trust and authority as recruitment and coercion mechanism.
+  primary_tactics:
+  - TA0001
+  - TA0002
+  - TA0003
+  - TA0004
+  characteristic_techniques:
+  - T0003
+  - T0016
+  - T0026
+  - T0041
+  organizational_complexity: medium
+  typical_victim_count: 5-50
+- id: ACT010
+  name: State-Enabled Trafficker
+  description: Operates with implicit or explicit state protection, often involving government officials in coercion and profit-sharing.
+    May include state-sponsored forced labor programs.
+  primary_tactics:
+  - TA0003
+  - TA0004
+  - TA0005
+  - TA0006
+  characteristic_techniques:
+  - T0025
+  - T0033
+  - T0037
+  - T0041
+  - T0044
+  organizational_complexity: high
+  typical_victim_count: 100-10000+
+coercion_methods:
+- id: CM001
+  biderman_factor: Isolation
+  bite_equivalent: Information Control
+  name: Isolation
+  trafficking_techniques:
+  - Communication Isolation
+  - Movement Restriction
+  - Physical Confinement
+  description: Prevention of contact with outside support through confiscated communication devices, prohibition on outside
+    contact, or threatened harm to family if contact occurs.
+  observable_manifestation: Victim prevented from external contact; no access to independent information about rights or alternatives
+- id: CM002
+  biderman_factor: Degradation
+  bite_equivalent: Emotional Manipulation; Thought Reform
+  name: Degradation
+  trafficking_techniques:
+  - Psychological Degradation
+  - Identity Control
+  description: Systematic humiliation, insults, and attacks on identity reducing victim self-worth and capacity for autonomous
+    decision-making.
+  observable_manifestation: Victim subjected to systematic humiliation; identity attacked; shame internalized
+- id: CM003
+  biderman_factor: Monopolization of Perception
+  bite_equivalent: Information Control; Thought Reform
+  name: Monopolization of Perception
+  trafficking_techniques:
+  - Communication Isolation
+  - Information Control
+  description: Overwhelming attention through abuse or overstimulation, controlling all information flow so trafficker interpretation
+    becomes victim understanding.
+  observable_manifestation: Victim receives all information through trafficker; reality-testing impossible; trafficker interpretation
+    becomes victim understanding
+- id: CM004
+  biderman_factor: Induced Debility
+  bite_equivalent: Behavioral Control
+  name: Induced Debility
+  trafficking_techniques:
+  - Labor Extraction
+  - Movement Restriction
+  description: Fatigue, malnourishment, or physiological compromise reducing capacity for resistance through exhaustion and
+    deprivation.
+  observable_manifestation: Victim exhausted, malnourished, or physiologically compromised; capacity for resistance reduced
+- id: CM005
+  biderman_factor: Threats
+  bite_equivalent: Emotional Manipulation; Behavioral Control
+  name: Threats
+  trafficking_techniques:
+  - Family-Based Threats
+  - Deportation Threats
+  - Social Ostracism Threats
+  description: Explicit and implicit danger communicated to maintain behavioral compliance through threatened consequences
+    to victim or loved ones.
+  observable_manifestation: Victim experiences constant danger perception; behavioral compliance maintained through threatened
+    consequences
+- id: CM006
+  biderman_factor: Occasional Indulgences
+  bite_equivalent: Emotional Manipulation
+  name: Occasional Indulgences
+  trafficking_techniques:
+  - Inconsistent Punishment
+  description: Unpredictable rewards creating psychological dependence, preventing victim ability to predict or control consequences.
+  observable_manifestation: Victim cannot predict which behaviors earn reward vs. punishment; psychological dependence on
+    trafficker for safety and comfort
+- id: CM007
+  biderman_factor: Demonstrating Omnipotence
+  bite_equivalent: Behavioral Control; Thought Reform
+  name: Demonstrating Omnipotence
+  trafficking_techniques:
+  - Physical Confinement
+  - Economic Control
+  - Institutional Cooperation
+  description: Displaying trafficker power and victim powerlessness across all domains of life, creating hopelessness regarding
+    escape.
+  observable_manifestation: Victim experiences trafficker power over all domains of life; hopelessness regarding escape possibilities
+- id: CM008
+  biderman_factor: Demanding Denunciation
+  bite_equivalent: Thought Reform
+  name: Demanding Denunciation
+  trafficking_techniques:
+  - Criminally Coerced Labor
+  - Family Involvement
+  description: Forcing victims to blame themselves, report on other victims, or participate in trafficking activities, creating
+    co-perpetrator status.
+  observable_manifestation: Victim forced to participate in trafficking others or illegal activity; victim becomes co-perpetrator,
+    complicating escape and reporting
+typologies:
+  sex_trafficking_commercial:
+  - id: TYP001
+    name: Street-Based Prostitution
+    description: Victims forced or coerced into commercial sex on streets/public spaces under third-party control and profit-taking
+    demand_drivers:
+    - Buyer access
+    - Low reporting/enforcement
+    - Visible supply
+    victim_characteristics:
+    - Youth (especially LGBTQ youth)
+    - Runaway/homeless youth
+    - Foster youth
+    - Urban-based
+    common_perpetrators:
+    - Gang members
+    - Solo pimps
+    - Organized networks
+    exploitation_forms:
+    - Forced prostitution
+    - Street solicitation under control
+  - id: TYP002
+    name: Escort Services
+    description: Victims providing sexual services through escort businesses/services under third-party control
+    demand_drivers:
+    - Online platforms
+    - Discreet transaction
+    - Perceived legitimacy
+    victim_characteristics:
+    - Economic vulnerability
+    - Immigrants
+    - Young adults
+    - Socially isolated
+    common_perpetrators:
+    - Trafficking networks
+    - Business operators
+    - Organized crime
+    exploitation_forms:
+    - Escort provision
+    - Online advertisement
+    - Buyer delivery
+  - id: TYP003
+    name: Brothel-Based Sex Trafficking
+    description: Victims exploited in fixed locations (houses, apartments, businesses) providing commercial sex
+    demand_drivers:
+    - Fixed location accessibility
+    - Perceived legitimacy through business front
+    - Concentrated supply
+    victim_characteristics:
+    - Immigrant populations
+    - Trafficked across borders
+    - Limited English
+    - Economic desperation
+    common_perpetrators:
+    - Organized trafficking networks
+    - International criminal organizations
+    - Corrupt business operators
+    exploitation_forms:
+    - Indoor sex trafficking
+    - Debt bondage
+    - Movement restriction
+  - id: TYP004
+    name: Massage/Spa Sexual Services
+    description: Sexual services provided at massage businesses, spas, or similar establishments under trafficker control
+    demand_drivers:
+    - Perceived legitimacy
+    - Discreet transactions
+    - Visible business front
+    victim_characteristics:
+    - Asian immigrant women
+    - Trafficked across borders
+    - English-limited
+    - Debt-bonded
+    common_perpetrators:
+    - Trafficking networks
+    - Business operators
+    - Organized networks with transnational connections
+    exploitation_forms:
+    - Sexual services under facade
+    - Live-in work arrangements
+    - Document control
+  - id: TYP005
+    name: Strip Club Sexual Services
+    description: Coerced performance of sexual services in strip clubs, nightclubs, or similar venues
+    demand_drivers:
+    - Alcohol/drug enabling environment
+    - Transactional sexual culture
+    - Perceived privacy
+    victim_characteristics:
+    - Substance-dependent women
+    - Economic vulnerability
+    - Recruited youth
+    common_perpetrators:
+    - Club management
+    - Individual dancers with victims
+    - Trafficking networks
+    exploitation_forms:
+    - Staged performance with private services
+    - Substance dependency maintenance
+    - Debt for housing/food
+  - id: TYP006
+    name: Hotel-Based Prostitution
+    description: Victims exploited for commercial sex through hotel arrangements and outcall services
+    demand_drivers:
+    - Transient client base
+    - Anonymous transactions
+    - Travel event clustering
+    victim_characteristics:
+    - Mobile victims
+    - Circuit-trafficked
+    - Event-following
+    common_perpetrators:
+    - Mobile trafficking networks
+    - Gang-affiliated operators
+    exploitation_forms:
+    - Outcall services
+    - Event-based movement
+    - Room-based operations
+  - id: TYP007
+    name: Online Sexual Exploitation
+    description: Victims exploited for production or provision of sexual content/services online
+    demand_drivers:
+    - Online anonymity
+    - Global customer access
+    - Perceived non-identity risk
+    victim_characteristics:
+    - Youth
+    - Isolated individuals
+    - Vulnerable to online recruitment
+    common_perpetrators:
+    - Online operators
+    - Technology-enabled traffickers
+    - Independent perpetrators
+    exploitation_forms:
+    - Forced pornography production
+    - Live-streaming exploitation
+    - Sexual content creation
+  - id: TYP008
+    name: Pimp-Controlled Sex Trafficking
+    description: Victim exploitation by individual 'pimp' controlling sexual services and earnings
+    demand_drivers:
+    - Street-accessible supply
+    - Simple business model
+    - Buyer accessibility
+    victim_characteristics:
+    - Youth (especially LGBTQ)
+    - Runaways
+    - Vulnerable to relationship grooming
+    common_perpetrators:
+    - Individual pimps
+    - Gang-affiliated pimps
+    exploitation_forms:
+    - Direct victim control
+    - Earnings theft
+    - Violence-based compliance
+  sex_trafficking_non_commercial:
+  - id: TYP009
+    name: Familial Sex Abuse with Trafficking Elements
+    description: Sexual abuse of family members with elements of exploitation (third-party profit-taking, commercial elements)
+    demand_drivers:
+    - Access to victim
+    - Family power dynamics
+    - Secrecy/isolation
+    victim_characteristics:
+    - Children
+    - Adolescents
+    - Family members
+    - Economically dependent
+    common_perpetrators:
+    - Family members
+    - Family friends with access
+    exploitation_forms:
+    - Incest
+    - Child sexual abuse
+    - Forced family participation
+  - id: TYP010
+    name: Non-Commercial Sexual Slavery
+    description: Sexual servitude to individual(s) without direct commercial transaction - personal sexual slavery
+    demand_drivers:
+    - Possession/control desire
+    - Intimate relationship exploitation
+    victim_characteristics:
+    - Individuals in dependent relationships
+    - Domestic service workers
+    common_perpetrators:
+    - Individual perpetrators
+    - Intimate partners
+    exploitation_forms:
+    - Personal sexual servitude
+    - Domestic servitude with sexual component
+  labor_trafficking:
+  - id: TYP011
+    name: Agricultural Labor Trafficking
+    description: Forced labor in farming, ranching, food processing, or agricultural operations
+    demand_drivers:
+    - Seasonal labor demand
+    - Isolated work locations
+    - Low visibility
+    - Profit margins
+    victim_characteristics:
+    - Rural poor
+    - Immigrants
+    - Limited education
+    - Desperate for work
+    common_perpetrators:
+    - Labor contractors
+    - Farm operators
+    - Recruitment networks
+    exploitation_forms:
+    - Debt bondage
+    - Wage theft
+    - Housing control
+    - Physical confinement
+  - id: TYP012
+    name: Construction Labor Trafficking
+    description: Forced labor in construction, renovation, or infrastructure projects
+    demand_drivers:
+    - Temporary work nature
+    - Project-based movement
+    - Cash payments possible
+    - Demand for cheap labor
+    victim_characteristics:
+    - Male migrants
+    - Low-skilled workers
+    - Limited documentation
+    common_perpetrators:
+    - Subcontractors
+    - Labor brokers
+    - Construction companies
+    exploitation_forms:
+    - Wage theft
+    - Dangerous conditions
+    - Movement restriction
+    - Document control
+  - id: TYP013
+    name: Domestic Servitude
+    description: Forced household labor in private homes including cleaning, childcare, elder care, personal service
+    demand_drivers:
+    - Private location invisibility
+    - Intimate household access
+    - Demand for low-cost domestic help
+    victim_characteristics:
+    - Immigrant women
+    - Limited English
+    - Limited work alternatives
+    - Vulnerable to isolation
+    common_perpetrators:
+    - Individual employers
+    - Diplomatic/government official families
+    - Wealthy households
+    exploitation_forms:
+    - Live-in servitude
+    - Movement restriction
+    - Complete economic control
+    - Physical/sexual abuse
+  - id: TYP014
+    name: Restaurant/Food Service Trafficking
+    description: Forced labor in restaurants, cafes, food preparation, or hospitality settings
+    demand_drivers:
+    - High-demand for kitchen/service labor
+    - Cash-intensive business
+    - Immigration population availability
+    victim_characteristics:
+    - Immigrant workers
+    - Limited English
+    - Recruited for 'restaurant jobs'
+    - Culturally targeted
+    common_perpetrators:
+    - Restaurant operators
+    - Labor brokers
+    - Organized trafficking networks
+    exploitation_forms:
+    - Wage theft
+    - Debt bondage
+    - Housing control
+    - Document control
+  - id: TYP015
+    name: Manufacturing/Factory Trafficking
+    description: Forced labor in factories, manufacturing facilities, or sweatshops
+    demand_drivers:
+    - Demand for cheap production
+    - High-volume labor need
+    - Quotas enabling abuse
+    - Supply chain invisibility
+    victim_characteristics:
+    - Economic refugees
+    - Migrants seeking work
+    - Limited English
+    common_perpetrators:
+    - Factory operators
+    - Labor supply networks
+    - Organized trafficking networks
+    exploitation_forms:
+    - Dangerous conditions
+    - Wage theft
+    - Excessive hours
+    - Document control
+  - id: TYP016
+    name: Domestic Work Trafficking (Private Household)
+    description: Forced labor by live-in domestic workers in private households
+    demand_drivers:
+    - Wealthy household demand for low-cost help
+    - Privacy of home setting
+    - Victim isolation
+    victim_characteristics:
+    - Immigrant women
+    - Limited English
+    - Isolated individuals
+    - Vulnerable to household isolation
+    common_perpetrators:
+    - Wealthy employers
+    - Employment agencies
+    - Diplomatic families
+    exploitation_forms:
+    - Live-in servitude
+    - Complete isolation
+    - Physical/sexual abuse
+    - Wage non-payment
+  - id: TYP017
+    name: Fishing Industry Trafficking
+    description: Forced labor on fishing vessels or in fish processing
+    demand_drivers:
+    - Isolated work locations
+    - High profit margins
+    - Seafaring law gaps
+    - Demand for cheap seafood
+    victim_characteristics:
+    - Economic refugees
+    - Migrants
+    - Limited maritime knowledge
+    common_perpetrators:
+    - Ship captains
+    - Fishing companies
+    - Labor brokers
+    exploitation_forms:
+    - Debt bondage
+    - Isolated confinement
+    - Violence enforcement
+    - Document control
+  - id: TYP018
+    name: Traveling Sales Crews
+    description: Forced participation in door-to-door sales operations under trafficker control
+    demand_drivers:
+    - Mobile sales model
+    - Cash-based transactions
+    - Isolation from community
+    victim_characteristics:
+    - Youth
+    - Homeless individuals
+    - Vulnerable to recruitment
+    - Limited support networks
+    common_perpetrators:
+    - Sales crew operators
+    - Gang-affiliated operators
+    exploitation_forms:
+    - Forced sales participation
+    - Wage theft
+    - Constant movement
+    - Isolation
+  forced_criminality:
+  - id: TYP019
+    name: Drug Distribution Trafficking
+    description: Forced participation in drug distribution and sales operations
+    demand_drivers:
+    - Profit from drug sales
+    - Need for 'expendable' sellers
+    - Youth recruitment ease
+    victim_characteristics:
+    - Youth
+    - Gang-vulnerable populations
+    - Substance-dependent individuals
+    common_perpetrators:
+    - Drug traffickers
+    - Gang members
+    - Organized crime
+    exploitation_forms:
+    - Forced drug dealing
+    - Debt bondage through drugs
+    - Violence threat/enforcement
+  - id: TYP020
+    name: Theft/Shoplifting Trafficking
+    description: Forced participation in theft, shoplifting, or retail crime under trafficker control
+    demand_drivers:
+    - Profit from stolen goods
+    - Need for 'expendable' perpetrators
+    victim_characteristics:
+    - Youth
+    - Homeless individuals
+    - Drug-dependent people
+    common_perpetrators:
+    - Individual traffickers
+    - Organized theft rings
+    - Gang-affiliated operators
+    exploitation_forms:
+    - Forced theft participation
+    - Revenue theft
+    - Penalty/debt structure
+  - id: TYP021
+    name: Financial Fraud Trafficking
+    description: Forcing victims to participate in identity theft, check fraud, credit fraud, or financial schemes
+    demand_drivers:
+    - High-profit financial fraud
+    - Victim victimization through their identity
+    victim_characteristics:
+    - Vulnerable to coercion
+    - Limited understanding of fraud implications
+    common_perpetrators:
+    - Fraud scheme operators
+    - Identity theft rings
+    - Organized crime
+    exploitation_forms:
+    - Identity theft
+    - Fraud participation under coercion
+    - Money mule operations
+  other_exploitation:
+  - id: TYP022
+    name: Organ Trafficking
+    description: Exploitation for organ removal including forced kidney/liver donation
+    demand_drivers:
+    - Black market organ demand
+    - Economic desperation of vulnerable
+    - Medical infrastructure access
+    victim_characteristics:
+    - Economically desperate
+    - Vulnerable to deception
+    - Poor healthcare access
+    common_perpetrators:
+    - Medical professionals
+    - Organized trafficking networks
+    - Brokers
+    exploitation_forms:
+    - Deceptive 'medical procedures'
+    - Organ removal without informed consent
+    - Compensation non-payment
+  - id: TYP023
+    name: Forced Begging
+    description: Forcing victims (especially children and disabled individuals) to beg on streets under third-party control
+    demand_drivers:
+    - Visible street begging generates income
+    - Vulnerable victim availability
+    victim_characteristics:
+    - Children
+    - Individuals with disabilities
+    - Homeless youth
+    - Socially marginalized
+    common_perpetrators:
+    - Individual traffickers
+    - Organized begging networks
+    exploitation_forms:
+    - Street begging under control
+    - Revenue theft
+    - Movement restriction
+  - id: TYP024
+    name: Forced Marriage
+    description: Marriage coerced through force, fraud, or coercion with exploitation outcomes (sexual, labor, financial)
+    demand_drivers:
+    - Cultural/family control mechanisms
+    - Economic motivations
+    - Immigration access
+    victim_characteristics:
+    - Women/girls
+    - Culturally vulnerable populations
+    - Immigration-seekers
+    common_perpetrators:
+    - Family members
+    - Marriage brokers
+    - Partner in destination country
+    exploitation_forms:
+    - Sexual exploitation
+    - Labor exploitation
+    - Economic control
+    - Movement restriction
+  - id: TYP025
+    name: Child Soldiers/Forced Military Service
+    description: Forced recruitment and exploitation of children/youth in military or militant operations
+    demand_drivers:
+    - Militant group recruitment
+    - Combat labor need
+    - Ideological indoctrination
+    victim_characteristics:
+    - Children
+    - Adolescents
+    - War-affected populations
+    - Refugee youth
+    common_perpetrators:
+    - Militant groups
+    - Armed insurgents
+    - State militaries (in some contexts)
+    exploitation_forms:
+    - Forced combat
+    - Military servitude
+    - Forced criminal participation
+    - Ideological indoctrination
+  - id: TYP026
+    name: Cult/Coercive Group Exploitation
+    description: Exploitation within cult or high-control group contexts with trafficking elements
+    demand_drivers:
+    - Ideological control
+    - Resource consolidation
+    - Sexual exploitation of members
+    victim_characteristics:
+    - Belief-seekers
+    - Socially isolated
+    - Psychologically vulnerable
+    - Second-generation members
+    common_perpetrators:
+    - Cult leaders
+    - High-control group leadership
+    exploitation_forms:
+    - Economic exploitation
+    - Sexual exploitation
+    - Forced labor
+    - Identity suppression
+  - id: TYP027
+    name: Forced Surrogacy
+    description: Exploitation of women for non-consensual or coerced pregnancy and surrogacy arrangements
+    demand_drivers:
+    - Infertility market demand
+    - Demand for cheap surrogacy in wealthy countries
+    victim_characteristics:
+    - Women in poverty
+    - Economically desperate
+    - Limited healthcare access
+    common_perpetrators:
+    - Fertility brokers
+    - Trafficking networks
+    - Individuals seeking surrogacy
+    exploitation_forms:
+    - Coerced pregnancy
+    - Child removal from mother
+    - Reproductive exploitation
+  - id: TYP028
+    name: Online Sexual Exploitation (Extended)
+    description: Exploitation exclusive to online platforms without in-person contact or tangible movement
+    demand_drivers:
+    - Global online customer access
+    - Anonymity of online transactions
+    - Low perceived risk
+    victim_characteristics:
+    - Youth
+    - Socially isolated
+    - Online-recruited
+    - Vulnerable to sextortion
+    common_perpetrators:
+    - Online operators
+    - Independent perpetrators
+    - Boyfriend/girlfriend exploiters
+    exploitation_forms:
+    - Sextortion
+    - Forced image production
+    - Live-streaming sexual exploitation
+    - Online grooming
+  - id: TYP029
+    name: Survival Trafficking/Coerced Transactional Sex
+    description: Exploitation where victim engages in transactional sexual activity for survival needs under trafficker-created
+      conditions
+    demand_drivers:
+    - Artificial scarcity creation
+    - Basic needs withholding
+    - Homeless population vulnerability
+    victim_characteristics:
+    - Homeless youth/adults
+    - Substance-dependent individuals
+    - Foster youth
+    - System-exit populations
+    common_perpetrators:
+    - Shelter operators
+    - Service providers
+    - Individual exploiters with access to vulnerable
+    exploitation_forms:
+    - Survival sex under coercion
+    - Basic needs conditioning for sex
+    - Shelter-based exploitation
+  - id: TYP030
+    name: Mixed/Concurrent Exploitation
+    description: Victims experiencing simultaneous or sequential multiple exploitation forms (sex + labor, forced criminality
+      + sexual exploitation)
+    demand_drivers:
+    - Multi-type profit maximization
+    - Complex control mechanisms
+    victim_characteristics:
+    - Long-term trafficking situations
+    - Complex trauma victims
+    common_perpetrators:
+    - Sophisticated trafficking networks
+    - Organized crime organizations
+    exploitation_forms:
+    - Simultaneous sexual and labor exploitation
+    - Sex trafficking with forced criminality
+    - Labor trafficking with debt bondage and sexual abuse
+radicalization_pathways:
+- id: RAD001
+  name: Economic Opportunity Pathway
+  description: Individual becomes trafficker through perceived economic opportunity without prior criminal involvement or
+    ideological motivation
+  preconditions:
+  - Economic desperation or ambition
+  - Exposure to profitable trafficking operation
+  - Weak formal employment alternatives
+  progression_stages:
+  - stage: Exposure
+    description: Individual observes successful trafficking operation and profit-taking
+  - stage: Recruitment
+    description: Offered role in trafficking operation (recruiter, manager, buyer facilitator)
+  - stage: Rationalization
+    description: Minimization of victim harm, victim-blaming, profit justification
+  - stage: Operational Integration
+    description: Assumption of trafficking role with increasing authority and victim contact
+  intervention_points:
+  - Economic development
+  - Legitimate employment
+  - Early recruitment refusal
+  - Awareness of victim harm
+  ideological_justification: Economic rationality, perceived victimlessness of exploitation, blame-shifting to victims
+- id: RAD002
+  name: Intimate Partner Violence Escalation
+  description: Intimate partner perpetrator escalates control from domestic violence to active trafficking exploitation
+  preconditions:
+  - Domestic violence history
+  - Coercive control pattern
+  - Economic vulnerability of partner
+  - Sense of entitlement to partner control
+  progression_stages:
+  - stage: Control Establishment
+    description: Isolation, financial control, communication restriction established in domestic relationship
+  - stage: Escalation
+    description: Extension of control to economic exploitation of partner
+  - stage: Commercialization
+    description: Extension to third-party exploitation (commercial sex, labor) for perpetrator profit
+  intervention_points:
+  - Domestic violence intervention
+  - Financial independence support
+  - Safety planning before escalation
+  ideological_justification: Spouse/partner ownership, entitlement to control and earnings, patriarchal authority
+- id: RAD003
+  name: Gang Progression Pathway
+  description: Youth gang member progresses from gang involvement to trafficking leadership role
+  preconditions:
+  - Gang membership
+  - Access to victims
+  - Territory control
+  - Existing violence infrastructure
+  progression_stages:
+  - stage: Gang Initiation
+    description: Youth joins gang, socialized to violence and profit-taking
+  - stage: Victim Access
+    description: Gang control creates access to vulnerable youth (runaways, other gang members)
+  - stage: Trafficking Initiation
+    description: Gang introduces member to trafficking as revenue stream
+  - stage: Trafficking Leadership
+    description: Member develops trafficking operation under gang auspices
+  intervention_points:
+  - Gang exit programs
+  - Youth at-risk prevention
+  - Violence interruption
+  - Early commercial sexual exploitation intervention
+  ideological_justification: Gang profit models, normalized violence, victim as 'property', status through exploitation
+- id: RAD004
+  name: Organizational Indoctrination Pathway
+  description: Individual joins high-control organization (cult, pseudo-religious group) and becomes trafficking perpetrator
+    through organizational ideology
+  preconditions:
+  - Organizational recruitment
+  - Isolation from outside information
+  - Authority submission
+  - Ideological alignment cultivation
+  progression_stages:
+  - stage: Recruitment
+    description: Individual recruited into organization offering meaning/community/spiritual advancement
+  - stage: Indoctrination
+    description: Systematic belief system internalization justifying exploitation
+  - stage: Role Assignment
+    description: Assignment of trafficking-related responsibilities within organization
+  - stage: Perpetrator Identity Integration
+    description: Trafficking role becomes central to identity and purpose
+  intervention_points:
+  - Exit counseling
+  - De-radicalization programs
+  - Alternative meaning systems
+  - Ideological counter-messaging
+  ideological_justification: Organizational ideology positioning exploitation as righteous, victim as spiritually inferior,
+    leader as infallible authority
+- id: RAD005
+  name: Professional/Authority Position Exploitation Pathway
+  description: Individual in position of authority (government official, labor broker, service provider) leverages position
+    for trafficking profit
+  preconditions:
+  - Professional position with victim access
+  - Weak institutional oversight
+  - Normalization of exploitation in institution
+  - Corruption opportunity awareness
+  progression_stages:
+  - stage: Opportunity Recognition
+    description: Individual recognizes position enables exploitation without easy detection
+  - stage: Incremental Transgression
+    description: Small facilitations (overlooking violations, document assistance) with profit incentive
+  - stage: Integration
+    description: Systematic institutional complicity in trafficking operations
+  intervention_points:
+  - Institutional oversight strengthening
+  - Whistleblower protections
+  - Corruption detection
+  - Professional ethics training
+  ideological_justification: Institutional cynicism, victim as deserving exploitation, profit rationalization, power/position
+    entitlement
+- id: RAD006
+  name: Victim-to-Perpetrator Pathway
+  description: Trafficking victim, especially youth, progressively assumes perpetrator role over extended exploitation period
+  preconditions:
+  - Long-term trafficking victimization
+  - Perpetrator approval-seeking
+  - Limited viable alternatives
+  - Internalized victim blame
+  progression_stages:
+  - stage: Victim Status
+    description: Individual exploited as trafficking victim
+  - stage: Survivor Skills Development
+    description: Development of coping mechanisms and operational understanding
+  - stage: Perpetrator Promotion
+    description: Trafficker promotes victim to minor perpetrator role (recruiter, monitor)
+  - stage: Perpetrator Identity Integration
+    description: Shift from victim identity to perpetrator identity
+  intervention_points:
+  - Immediate trauma support
+  - Alternative pathway provision
+  - Victim-to-survivor transition support
+  - Prevention of perpetrator progression
+  ideological_justification: Trauma bonding with trafficker, normalized exploitation as survival, victim blame internalization
+- id: RAD007
+  name: Technology-Enabled Perpetrator Pathway
+  description: Technically-skilled individual recognizes platform facilitation opportunity and becomes online trafficking
+    facilitator
+  preconditions:
+  - Technical skills
+  - Platform development capability
+  - Profit motivation
+  - Perceived separation from direct victim harm
+  progression_stages:
+  - stage: Technical Development
+    description: Individual develops platform, marketplace, or content delivery system
+  - stage: Operational Launch
+    description: Platform launches facilitating trafficking transactions
+  - stage: Scaling
+    description: Expansion of platform user base and transaction volume
+  - stage: Institutional Entrenchment
+    description: Platform becomes established trafficking infrastructure
+  intervention_points:
+  - Tech ethics education
+  - Platform company responsibility
+  - Law enforcement technical capacity
+  - User reporting mechanisms
+  ideological_justification: Perceived non-violence of online facilitation, victim invisibility, profit motivation, technical
+    innovation justification
+- id: RAD008
+  name: Recruitment Network Pathway
+  description: Individual becomes recruitment specialist/broker for trafficking network based on cultural/linguistic connections
+    to victim communities
+  preconditions:
+  - Cultural/linguistic connection to source community
+  - Recruitment role offer
+  - Profit-per-person incentive structure
+  progression_stages:
+  - stage: Initial Deception
+    description: Individual recruited to place job advertisements and conduct interviews
+  - stage: Aware Deception
+    description: Individual becomes aware of trafficking nature but continues recruitment
+  - stage: Network Integration
+    description: Becomes integrated trafficking recruiter with expanded victim network
+  intervention_points:
+  - Source country awareness programs
+  - Recruitment verification systems
+  - Legitimate job pathway promotion
+  ideological_justification: Economic opportunity exploitation, victim-blaming for 'not verifying', community infiltration
+    normalization
+- id: RAD009
+  name: Coercive Control Pattern Establishment
+  description: Individual practices increasingly coercive control (over partner, family member, employee) escalating to trafficking
+  preconditions:
+  - Exposure to coercive control modeling
+  - Perceived entitlement to control others
+  - Weak accountability for abuse
+  progression_stages:
+  - stage: Control Initiation
+    description: Individual establishes coercive control in intimate/subordinate relationship
+  - stage: Control Deepening
+    description: Isolation, financial control, movement restriction becomes comprehensive
+  - stage: Commercialization
+    description: Controlled person's labor/sexuality becomes profit source
+  - stage: Scale Expansion
+    description: Expansion to multiple victims under similar control mechanisms
+  intervention_points:
+  - Coercive control criminalizing legislation
+  - Early intimate partner violence intervention
+  - Perpetrator accountability
+  ideological_justification: Entitled ownership mentality, victim blame for dependency, normalization of control as necessary
+crosswalks:
+  icd_10_trauma:
+  - icd_code: F43.10
+    icd_diagnosis: Post-traumatic stress disorder, single episode, unspecified
+    trafficking_context: Acute trafficking exposure with acute stress response
+    trace_indicators:
+    - Recent trafficking
+    - Acute symptom onset
+    - Single trauma event or series of closely related events
+  - icd_code: F43.11
+    icd_diagnosis: Post-traumatic stress disorder, single episode, with predominant re-experiencing
+    trafficking_context: Trafficking with intrusive memories, flashbacks of exploitation
+    trace_indicators:
+    - Flashbacks of exploitation
+    - Intrusive memories
+    - Trauma anniversary reactions
+  - icd_code: F43.12
+    icd_diagnosis: Post-traumatic stress disorder, single episode, with predominant avoidance
+    trafficking_context: Trafficking with avoidance of trafficking reminders and triggers
+    trace_indicators:
+    - Avoidance of locations/people/discussions related to trafficking
+    - Behavioral avoidance
+  - icd_code: F43.13
+    icd_diagnosis: Post-traumatic stress disorder, single episode, with predominant mood disturbance
+    trafficking_context: Trafficking with pervasive mood disturbance, anhedonia, guilt
+    trace_indicators:
+    - Depression
+    - Anhedonia
+    - Guilt about survival
+    - Shame
+  - icd_code: F43.14
+    icd_diagnosis: Post-traumatic stress disorder, single episode, with predominant disturbance of consciousness and behavior
+    trafficking_context: Trafficking with hyperarousal, recklessness, aggressive behavior
+    trace_indicators:
+    - Hypervigilance
+    - Reckless behavior
+    - Aggression
+    - Substance misuse as self-medication
+  - icd_code: F41.1
+    icd_diagnosis: Generalized anxiety disorder
+    trafficking_context: Pervasive anxiety from trafficking threat/surveillance
+    trace_indicators:
+    - Persistent worry
+    - Hypervigilance
+    - Threat perception
+    - Sleep disturbance from anxiety
+  - icd_code: F32.9
+    icd_diagnosis: Depressive episode, unspecified
+    trafficking_context: Depression following trafficking with hopelessness, anhedonia
+    trace_indicators:
+    - Depressed mood
+    - Loss of interest
+    - Fatigue
+    - Hopelessness about future
+  - icd_code: F48.1
+    icd_diagnosis: Depersonalization-derealization disorder
+    trafficking_context: Dissociative response to trafficking trauma
+    trace_indicators:
+    - Feeling detached from body
+    - Unreality sense
+    - Numbness
+    - Complex trauma history
+  - icd_code: F60.8
+    icd_diagnosis: Personality disorder, unspecified
+    trafficking_context: Personality changes/adaptations secondary to trafficking victimization
+    trace_indicators:
+    - Altered personality following trafficking
+    - Interpersonal difficulties
+    - Trust deficits
+  - icd_code: Z59.01
+    icd_diagnosis: Homelessness, unspecified
+    trafficking_context: Homelessness as trafficking risk factor or trafficking outcome
+    trace_indicators:
+    - No stable residence
+    - Street-based exploitation risk
+    - Post-trafficking instability
+  dsm5_diagnostic:
+  - dsm5_code: '309.81'
+    dsm5_diagnosis: Posttraumatic Stress Disorder
+    trafficking_correlation: Core diagnosis for trafficking survivors with trauma exposure
+    assessment_criteria:
+    - Exposure to trafficking trauma
+    - Intrusion symptoms
+    - Avoidance symptoms
+    - Negative mood/cognition changes
+    - Arousal/reactivity changes
+    - Duration >1 month
+    - Functional impairment
+    trafficking_specific_manifestations:
+    - Intrusive memories of exploitation
+    - Nightmares of trafficking
+    - Flashbacks to trafficking
+    - Avoidance of trafficking reminders
+    - Negative beliefs about safety
+  - dsm5_code: '309.82'
+    dsm5_diagnosis: Acute Stress Disorder
+    trafficking_correlation: Immediate post-trafficking stress response (3 days to 1 month)
+    assessment_criteria:
+    - Exposure to trafficking trauma
+    - Dissociative symptoms prominent
+    - Duration 3 days to 1 month
+    trafficking_specific_manifestations:
+    - Acute dissociation post-rescue
+    - Acute avoidance
+    - Intrusive trauma memories in immediate aftermath
+  - dsm5_code: '300.23'
+    dsm5_diagnosis: Social Anxiety Disorder
+    trafficking_correlation: Social avoidance and anxiety secondary to trafficking
+    assessment_criteria:
+    - Fear of social situations
+    - Anxiety about negative evaluation
+    - Avoidance of social situations
+    trafficking_specific_manifestations:
+    - Fear of being judged as victim/perpetrator
+    - Shame-based social withdrawal
+    - Difficulty trusting others
+  - dsm5_code: '300.02'
+    dsm5_diagnosis: Generalized Anxiety Disorder
+    trafficking_correlation: Persistent anxiety from trafficking threat continuation fear
+    assessment_criteria:
+    - Excessive worry
+    - Physical symptoms
+    - Difficulty controlling worry
+    - Functional impairment
+    trafficking_specific_manifestations:
+    - Persistent fear of trafficker re-capture
+    - Hypervigilance
+    - Fear for family safety
+  - dsm5_code: '296.99'
+    dsm5_diagnosis: Unspecified Depressive Disorder
+    trafficking_correlation: Depression following trafficking with complex presentation
+    assessment_criteria:
+    - Depressed mood
+    - Anhedonia
+    - Fatigue
+    - Guilt
+    - Hopelessness
+    trafficking_specific_manifestations:
+    - Survivor guilt
+    - Loss of purpose
+    - Hopelessness about future
+    - Grief for lost identity
+  - dsm5_code: '309.3'
+    dsm5_diagnosis: Adjustment Disorder with Mixed Disturbance of Emotions and Conduct
+    trafficking_correlation: Adjustment difficulties in post-trafficking transition
+    assessment_criteria:
+    - Identifiable stressor
+    - Symptoms within 3 months
+    - Functional impairment
+    trafficking_specific_manifestations:
+    - Difficulty adjusting to survivor identity
+    - Behavioral challenges in transition
+    - Emotional dysregulation
+  - dsm5_code: '313.81'
+    dsm5_diagnosis: Oppositional Defiant Disorder
+    trafficking_correlation: Defiance/opposition in child trafficking survivors
+    assessment_criteria:
+    - Pattern of angry/defiant behavior
+    - Argumentativeness
+    - Vindictiveness
+    trafficking_specific_manifestations:
+    - Defiance as trauma response
+    - Authority distrust
+    - Testing boundaries in safe environment
+  - dsm5_code: '314.01'
+    dsm5_diagnosis: Attention-Deficit/Hyperactivity Disorder, Combined Presentation
+    trafficking_correlation: ADHD-like symptoms from trauma/developmental disruption
+    assessment_criteria:
+    - Inattention symptoms
+    - Hyperactivity symptoms
+    - Onset in childhood
+    trafficking_specific_manifestations:
+    - Hyperarousal misidentified as hyperactivity
+    - Trauma-related concentration deficit
+    - Developmental interruption effects
+  - dsm5_code: '311'
+    dsm5_diagnosis: Unspecified Depressive Disorder
+    trafficking_correlation: Complex depression in trafficking survivors
+    assessment_criteria:
+    - Depressive symptoms not meeting specific disorder criteria
+    trafficking_specific_manifestations:
+    - Complex grief
+    - Identity loss depression
+    - Complicated bereavement
+  nibrs_offense_classification:
+  - nibrs_group: 100 - Crimes Against Persons
+    nibrs_offense: 11A - Rape/Sodomy
+    trafficking_application: Sex trafficking with forced sexual activity
+    statute_reference:
+    - 18 USC 1591 - Sex trafficking of children or by force, fraud, coercion
+    victim_indicator:
+    - Forced sexual activity
+    - Non-consensual sexual contact
+    - Commercial sex under coercion
+  - nibrs_group: 100 - Crimes Against Persons
+    nibrs_offense: 13A - Simple Assault
+    trafficking_application: Physical violence component of trafficking control
+    statute_reference:
+    - 18 USC 1589 - Forced labor
+    victim_indicator:
+    - Physical violence used for control
+    - Assault as punishment mechanism
+  - nibrs_group: 100 - Crimes Against Persons
+    nibrs_offense: 13B - Aggravated Assault
+    trafficking_application: Serious physical violence in trafficking operation
+    statute_reference:
+    - 18 USC 1589 - Forced labor
+    victim_indicator:
+    - Serious bodily injury
+    - Weapon-facilitated assault
+  - nibrs_group: 100 - Crimes Against Persons
+    nibrs_offense: 20A - Kidnapping/Abduction
+    trafficking_application: Taking custody of person with intent to exploit
+    statute_reference:
+    - 18 USC 1591, 1589 - Trafficking statutes
+    victim_indicator:
+    - Non-consensual taking
+    - Transport for exploitation
+    - Detention
+  - nibrs_group: 200 - Crimes Against Property
+    nibrs_offense: 23D - Theft from Individual
+    trafficking_application: Wage theft, document theft, identity theft by trafficker
+    statute_reference:
+    - 18 USC 1589, 1591 - Trafficking with financial exploitation
+    victim_indicator:
+    - Earnings taken by trafficker
+    - Document confiscation
+    - Property control by trafficker
+  - nibrs_group: 300 - Crimes Against Society
+    nibrs_offense: 40A - Prostitution
+    trafficking_application: Commercial sex trafficking, sex trafficking-related prostitution arrest
+    statute_reference:
+    - 18 USC 1591 - Sex trafficking; state prostitution laws
+    victim_indicator:
+    - Victim arrested for prostitution under trafficking
+    - Victim used for commercial sex
+  - nibrs_group: 300 - Crimes Against Society
+    nibrs_offense: 40B - Assisting/Promoting Prostitution
+    trafficking_application: Facilitating commercial sex trafficking
+    statute_reference:
+    - 18 USC 1591 - Sex trafficking
+    - State pimping/pandering laws
+    victim_indicator:
+    - Third party profiting from commercial sex
+    - Promotion of sex trafficking
+  - nibrs_group: 300 - Crimes Against Society
+    nibrs_offense: 35A - Drug/Narcotics Violations
+    trafficking_application: Forced drug distribution, drug-maintained control
+    statute_reference:
+    - 18 USC 1589 - Forced labor with drug dependency
+    - Drug trafficking statutes
+    victim_indicator:
+    - Forced drug dealing by trafficking victim
+    - Drug dependency as control
+  immigration_trafficking_status:
+  - immigration_status: T-Visa (Trafficking Victim Visa)
+    eligibility: Victim of severe trafficking in persons with substantial physical or mental abuse
+    trafficking_verification: Law enforcement certification of trafficking victimization
+    trafficking_indicators:
+    - Victim meets definition of severe trafficking
+    - Victim cooperates with LE or victim trauma prevents cooperation
+    - Victim physically present due to trafficking
+    benefits:
+    - Work authorization
+    - SSN
+    - Public benefits access
+    - Family reunification potential
+  - immigration_status: U-Visa (Crime Victim Visa)
+    eligibility: Crime victim with substantial abuse, victim cooperation with LE
+    trafficking_application: Victims of trafficking crimes including labor trafficking, document fraud, forced labor
+    trafficking_indicators:
+    - Victim of trafficking-related crime
+    - Substantial abuse
+    - LE cooperation
+    benefits:
+    - Work authorization
+    - SSN
+    - Public benefits
+    - Potential permanent residency
+  - immigration_status: VAWA (Violence Against Women Act) Self-Petition
+    eligibility: Victim of domestic violence/trafficking with marriage to US citizen/resident
+    trafficking_application: Spouse trafficking victims with direct filing ability
+    trafficking_indicators:
+    - Trafficking within intimate relationship
+    - Marriage to perpetrator or related person
+    benefits:
+    - Independent petition from perpetrator
+    - Potential permanent residency
+  - immigration_status: Asylum/TPS (Temporary Protected Status)
+    eligibility: Victim fleeing persecution in home country including trafficking
+    trafficking_application: Trafficking victims from high-trafficking countries
+    trafficking_indicators:
+    - Persecution risk in home country
+    - Inability to return safely
+    benefits:
+    - Work authorization
+    - Protection from deportation
+    - Potential permanent residency
+  - immigration_status: Cancellation of Removal
+    eligibility: Unlawful resident with 10+ years presence, good moral character, extreme hardship family member
+    trafficking_application: Undocumented trafficking victims with long-term presence
+    trafficking_indicators:
+    - Victim unable to obtain other immigration relief
+    - Long-term presence
+    - Family hardship from removal
+    benefits:
+    - Permanent residency
+    - Right to remain
